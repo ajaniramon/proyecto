@@ -1,0 +1,123 @@
+.container { 
+	background:-webkit-linear-gradient(#fafcfe,#abbcd8);
+	background:-o-linear-gradient(#fafcfe,#abbcd8);
+	background:-moz-linear-gradient(#fafcfe,#abbcd8);
+	background:linear-gradient(#fafcfe,#abbcd8);
+	padding-top:15px; 
+	height:100%;
+	width: 100%;
+}
+
+.panel-login {
+	width: 50%;
+    margin: 0 auto;
+}
+	
+.form-row-login { 
+	background:-webkit-linear-gradient(#404040,#636363);
+	background:-o-linear-gradient(#404040,#636363);
+	background:-moz-linear-gradient(#404040,#636363);
+	background:linear-gradient(#404040,#636363);
+	box-shadow:3px 3px 8px #000000 inset;
+	border-radius: 4px; 
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+}
+
+.form-row-login .form-group label {
+	color:#fff; 
+}
+
+
+
+.login-validation {
+	border-bottom: 4px solid #6c6c6c; 
+	width:90%;
+}
+
+.login-validation h4 {
+	color:#fff; 
+	border-radius: 8px;
+	font-weight: bold;
+}
+ 
+.message-login { 
+	background:­webkit-linear-gradient(#6f91ac,#476286);
+	background:-o-linear-gradient(#6f91ac,#476286);
+	background:-moz-linear-gradient(#6f91ac,#476286);
+	background:linear-gradient(#6f91ac,#476286);
+	box-shadow: 2px 2px c5px #bbbbbb inset;
+	border-radius: 4px; 
+	color:#fff;
+	padding:8px;
+	font-weight: bold;
+}
+
+.title-login{	
+	color:#4e688d; 
+}
+
+#title {
+	text-shadow: 3px 3px 8px #a2a2a2;
+}
+
+.title-login h2 {
+	font-size: 53px;
+    font-weight: bold;
+}
+
+.title-login h4 {
+    font-weight: bold;
+}
+
+
+.image-login img { 
+	padding-top:15px; 
+	width:100px;
+}
+
+
+.panel-button-login {
+    padding-top: 4px;
+}
+
+
+
+.button-login {
+	background:-webkit-linear-gradient(#ffffff,#d8d8d8);
+	background:-o-linear-gradient(#ffffff,#f8f8f8);
+	background:-moz-linear-gradient(#ffffff,#d8d8d8);
+	background:linear-gradient(#ffffff,#d8d8d8);
+	border:1px solid;
+	border-color: #777777;
+	border-radius: 8px;
+	font-size:14px;
+	/*padding:4px;*/
+	color: #4e688d
+}
+
+.button-login:hover {
+	background:-webkit-linear-gradient(#d8d8d8,#ffffff);
+	background:-o-linear-gradient(#d8d8d8,#ffffff);
+	background:-moz-linear-gradient(#d8d8d8,#ffffff);
+	background:linear-gradient(#d8d8d8,#ffffff);
+	border:1px solid;
+	border-color: #999999;;
+	border-radius: 8px;
+	
+}
+
+.status-message {
+	color:#ED1B24; 
+	font-size:18px;
+}
+
+
+@media (max-width: 767px) { 
+	.container {width: 90%;} 
+	}
+
+@media (max-width: 767px) { 
+	.panel-login {width: 100%;} 
+	}

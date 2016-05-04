@@ -1,0 +1,46 @@
+<IfModule mod_expires.c>
+<IfModule mod_headers.c>
+
+        ExpiresActive On
+
+        #Forzar no cache en general (por defecto php.ini ya lo fija)
+        Header set Cache-Control no-cache
+        Header append Cache-Control no-store
+        Header append Cache-Control must-revalidate
+        Header append Cache-Control post-check=0
+        Header append Cache-Control pre-check=0
+        Header append Cache-Control nocache
+        #Cachear contenido visual y estático (customs)
+        <filesMatch "\.(js|css|gif|jpg|jpeg|png|bmp)$">
+                ExpiresDefault "access plus 1 day" 
+                #Private=no proxy yes client Public=proxy and client
+                Header set Cache-Control public
+                #A=Acceso en segundos M=Modicacion en segundos
+                #ExpiresByType image/bmp "A604800" 
+        </filesMatch>
+        #Excepciones javascripts dinamicos
+        <FilesMatch "^(avisos|paginacion|TreeMenu)\.js$">
+                Header set Cache-Control no-cache
+                Header append Cache-Control no-store
+                Header append Cache-Control must-revalidate
+                Header append Cache-Control post-check=0
+                Header append Cache-Control pre-check=0
+                Header append Cache-Control nocache
+        </FilesMatch>
+</IfModule>
+</IfModule>
+
+#Evitar servir ficheros de configuracion e informacion de versiones
+<FilesMatch \.(xml|txt)$>
+        Order allow,deny
+        Deny from all
+</FilesMatch>
+
+#Controlar acceso a debugger
+<Files _debugger.php>
+        Order deny,allow
+        Deny from all
+
+        #Acceso a debug
+        Allow from all
+</Files>

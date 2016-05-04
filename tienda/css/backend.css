@@ -1,0 +1,244 @@
+
+/*=============================================================
+    Authour URI: www.ecorecipes.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    ========================================================  */
+/*==============================================
+    GENERAL  STYLES
+    =============================================*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #DCCFB5;
+}
+
+#logo{
+  width: 250px;
+  height: 80px;
+}
+
+#cabeceraLogout{
+  text-align: center;
+}
+
+ #wrapper {
+    width: 100%;
+    background:#202020;
+}
+
+#page-wrapper {
+    padding: 15px 15px;
+    min-height: 600px;
+    background:#DCCFB5;
+
+}
+#page-inner {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:#fff!important;
+    padding:10px;
+    min-height: 600px;
+    /*min-height:1200px;*/
+}
+
+.text-center {
+    text-align:center;
+}
+.no-boder {
+    border:1px solid #f3f3f3;
+}
+h2 {
+    color: #f00;
+}
+h4 {
+    padding-top:10px;
+}
+.square-btn-adjust {
+    border: 0px solid transparent;
+   -webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+
+}
+p {
+    font-size:16px;
+    line-height:25px;
+    padding-top:20px;
+}
+
+
+#a1{
+display: none;
+}
+#a2{
+display: none;
+}
+
+/*==============================================
+    MENU STYLES
+    =============================================*/
+
+.logout{
+  background-color: #46B546;
+  text-decoration: none;
+  color: white;
+}
+
+.logout:hover{
+  background-color: #329532 !important;
+  color: white;
+}
+
+.user-image {
+    margin: 25px auto;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+max-height:170px;
+max-width:170px;
+}
+
+.navbar-cls-top .navbar-brand {
+color: #fff;
+background: #46B546;
+width: 260px;
+text-align: center;
+height: 80px;
+font-size: 30px;
+font-weight: 700;
+
+/*-------------*/
+line-height: 30px;
+padding: 5px 10px 0px 10px;
+}
+
+.navbar-brand:hover{
+  background-color: #329532 !important;
+}
+
+.menu-lateral{
+  text-align: center;
+}
+
+a.menu-lateral:hover{
+  background-color:#46B546 !important;
+}
+
+.arrow {
+    float: right;
+}
+
+.fa.arrow:before {
+    content: "\f104";
+}
+
+.active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
+
+.sidebar-collapse , .sidebar-collapse .nav{
+	background:none;
+}
+.sidebar-collapse .nav {
+	padding:0;
+}
+.sidebar-collapse .nav > li > a {
+	color:#fff;
+	background:#202020;
+	text-shadow:none;
+
+}
+.sidebar-collapse > .nav > li > a {
+	padding:15px 10px;
+}
+.sidebar-collapse > .nav > li {
+	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+}
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {
+
+	background:#0A0A0A;
+	outline:0;
+}
+
+.navbar-side {
+	border:none;
+	background-color: #202020;
+  height: 100%;
+
+}
+.navbar-cls-top {
+	background:#4D4D4D;
+	border-bottom:none;
+
+}
+.navbar-cls-top .navbar-brand:hover {
+
+background: #C90000;
+color:#fff;
+
+}
+
+.navbar-default {
+border:0px solid black;
+
+}
+.navbar-header {
+  /*----------------------*/
+    background: #46B546;/*#A70303*/
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+background-color: #329532;/*#B40101*/
+}
+.navbar-default .navbar-toggle {
+border-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+background-color: #FFF;
+}
+.nav > li > a > i {
+    margin-right:10px;
+}
+/*==============================================
+    UI ELEMENTS STYLES
+    =============================================*/
+.btn-circle {
+width: 50px;
+height: 50px;
+padding: 6px 0;
+ -webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+text-align: center;
+font-size: 12px;
+line-height: 1.428571429;
+}
+
+/*==============================================
+    MEDIA QUERIES
+    =============================================*/
+
+ @media(min-width:768px) {
+     #page-wrapper{
+        margin: 0 0 0 260px;
+        padding: 15px 30px;
+        /*min-height: 1200px;*/
+
+    }
+
+
+    .navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 260px;
+    }
+
+   .navbar {
+ border-radius: 0px;
+}
+
+}

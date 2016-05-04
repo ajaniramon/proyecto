@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="tienda" default="default" basedir=".">
+    <description>Builds, tests, and runs the project tienda.</description>
+
+
+    <target name="openshift-deploy">
+        
+        <taskdef resource="es/logongas/openshift/ant/antlib.xml" />
+        <echo>[+] Ejecutando ANT.</echo>
+
+        <gitcloneapplication     
+            userName="ra1996@gmail.com" 
+            password="ra1996" 
+            domainName="ajanicorp" 
+            applicationName="tienda"  
+            privateKeyFile="../../id_rsa"
+            path="../tienda"
+        /> 
+        <delete includeemptydirs="true">
+            <fileset dir="../tienda" includes="**/*"/>
+        </delete>
+
+        <move todir="../tienda">
+            <fileset dir="../2DAW-Tienda" includes="**/*"/>
+        </move>
+
+        <git dir="../tienda" command="add" options="--all"/>
+        <git dir="../tienda" command="commit" options="-am 'push'"/>
+        <gitpushapplication    
+            userName="ra1996@gmail.com"
+            password="ra1996"
+            domainName="ajanicorp"
+            applicationName="tienda" 
+            privateKeyFile="../../id_rsa"
+            path="../tienda"
+        /> 
+
+    </target>
+
+ 
+    
+
+</project>

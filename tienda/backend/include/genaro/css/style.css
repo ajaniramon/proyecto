@@ -1,0 +1,263 @@
+@CHARSET "UTF-8";
+
+body {
+	background:#f5f5f5;
+}
+
+fieldset
+{
+	padding:10px;
+	margin:10px;
+	float:both;
+	text-align:center;
+	border:1px solid #dfdfdf;
+}
+
+form
+{
+	margin:20px auto;
+	text-align: center;
+}
+
+label, i {
+	font-size:12px;
+    color:#333;
+}
+
+.parametrizado {
+	width:16px;
+	height:16px;
+	cursor:help;
+	background:url('../img/info.png') no-repeat right;
+	background-size:16px 16px;
+	background-repeat:no-repeat;
+	margin-left: 3px;
+}
+
+.sinParametrizar {
+	width:16px;
+	height:16px;
+	cursor:help;
+	background:url('../img/warning.png') no-repeat right;
+	background-size:16px 16px;
+	background-repeat:no-repeat;	
+	margin-left: 3px;
+}
+
+h1 {
+	text-align:left;
+    float:left;
+	margin-left:10px;
+    font-size: 32px;
+    position:relative;
+    top:10px;
+    color:#333;
+}
+h2 {
+	text-align:left;
+	margin-left:10px;
+        color:gray;
+}
+
+h2.frase {
+    position: relative;
+    top:-60px;
+    margin-bottom: -10px;
+}
+
+legend {
+	font-size:14px;
+	font-weight:bold;
+	color:#333;
+}
+
+hr {
+	border: 2px solid gray;
+}
+
+#pagina {
+	font-family: verdana;
+	font-size:12px;
+	margin:10px auto;
+	height:100%;
+	min-width:800px;
+	max-width:1000px;
+	text-align:center;
+}
+
+#cabecera {
+    height:120px;
+    min-width:800px;
+    max-width:1000px;
+    background:url('../img/logo.gif') no-repeat right;
+
+}
+
+#cierre {
+    height:80px;
+    min-width:800px;
+    max-width:1000px;
+    background:url('../img/feder.gif') no-repeat center;
+}
+
+#menu ul {
+	padding:5px;
+	margin:5px;
+	text-align:left;
+	width:100%;
+	list-style-type:none;
+	display:inline;
+}
+
+#menu li {
+	list-style-type:none;
+	float:left;
+}
+
+#botonGenerar, .definicionNombreClase, .seleccionDePatron, #esquema, .mensajeError {
+	padding:10px;
+	margin:10px;
+}
+
+.item {
+	padding:10px;
+	margin:5px;
+	border:1px solid #333;
+	border-bottom:none;
+	background:#efefef;
+	cursor:pointer;
+    font-weight: bold;
+    -moz-border-radius: 10px 10px 0px 0px;   
+    border-radius: 10px 10px 0px 0px;
+}
+
+.itemActual {
+	padding:10px;
+	margin:5px;
+	border:1px solid #333;
+	border-bottom:none;
+	background:gray;
+	color:white;
+    font-weight: bold;
+    -moz-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+a.item:hover, .pesta�aActual {
+	background:#333;
+	color:white;
+}
+
+.mensajeError, .mensajeOk, .mensajeWarning, .mensajeInfo {
+	text-align:center;
+	padding:5px;
+	margin:5px 10px 10px 10px;
+	background:whitesmoke;
+}
+
+.mensajeError span, .mensajeOk span, .mensajeWarning span, .mensajeInfo span {
+	font-weight:bold;
+	margin:20px;
+}
+
+.mensajeError {
+	border:1px solid red;
+        background:url('../img/error.png') no-repeat left #F1C2C5;
+}
+
+.mensajeOk {
+	border:1px solid green;
+        background:url('../img/ok.png') no-repeat left palegreen;
+}
+
+.mensajeWarning {
+	border:1px solid gold;
+        background:url('../img/warning.png') no-repeat left #FFFF70;
+}
+
+.mensajeInfo {
+        border:1px solid blue;
+        background:url('../img/info.png') no-repeat left #A9C7DA;
+}
+
+#panel{
+	border:1px solid #333;
+	background:#efefef;
+	padding:10px;
+	margin:10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px #888888;
+}
+
+#personalizaCamposAJAX {	
+	border:1px solid #333;
+	background:#efefef;
+	padding:10px;
+	margin:10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px #888888;
+    overflow: auto;    
+    scrollbar-base-color:#ffeaff    
+}
+
+#item3 {
+    position:relative;
+    top:-3px;
+    padding:10px;
+    margin:5px;
+    border:1px solid #333;
+    border-bottom:none;
+    background:burlywood;
+    font-weight: bold;
+    -moz-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.logo {
+    height: 90px;
+    width: 135px;
+    position:relative;
+    float:right;
+
+}
+<!-----------------------------------------------Patron-Simple-->
+#formPatronTabularRegistro {
+	display:none;
+}
+
+#seleccionDeTabla {
+	padding:10px;
+	margin:10px;
+}
+
+<!-----------------------------------------------Maestro-Detalle-->
+#seleccionDeTablaMaestro {
+	padding:10px;
+	margin:10px;
+	text-align:center;
+}
+
+#seleccionDeTablaDetalle {
+	padding:10px;
+	margin:10px;
+}
+
+<!-----------------------------------------------Maestro-N-Detalles-->
+#formPatronMaestroNDetalles {
+	display:none;
+}
+
+#seleccionTablaMaestroN, #seleccionNumeroDeDetalles, #definicionDeDetalles, .seleccionDeDetalleN, .seleccionPatronDetalleN, #primaryKeyDetalle, #foreignKeyDetalle {
+	padding:10px;
+	margin:10px;
+}
+
+.cabezaTabla
+{
+	font-size:13px;
+    color:#333;	
+    style:bold;
+    padding-right: 20px;
+}

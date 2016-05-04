@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE menu [
+<!-- 
+/////////////////////////////////////////////////////
+Esta parte es la DTD de la definición del menú. No
+la borres, sirve para validar el documento
+/////////////////////////////////////////////////////
+-->
+
+	<!-- Toda aplicación consta de un menú -->
+	<!ELEMENT menu (modulo)* >
+	<!ATTLIST menu 
+		aplicacion	CDATA	#IMPLIED>
+
+	<!--
+		Las aplicaciones pueden dividirse en unos o
+		más módulos.
+		Cada modulo puede contener ramas u opciones, 
+		que serán o no accesibles en funcion del control
+		de acceso. El id es de uso interno.
+	-->
+	<!ELEMENT modulo (rama|opcion|controlAcceso)* >
+	<!ATTLIST modulo
+		titulo		CDATA	#REQUIRED
+		descripcion	CDATA	#IMPLIED
+		imagen		CDATA	#IMPLIED>
+	
+	<!--
+		Las ramas son bifurcaciones del menú.
+		Como los módulos puede controlarse su acceso
+		a través del control de acceso. El id es de
+		uso interno.
+	-->
+	<!ELEMENT rama (rama|opcion|controlAcceso)* >
+	<!ATTLIST rama
+		titulo		CDATA	#REQUIRED
+		imagen		CDATA	#IMPLIED>
+		
+	<!--
+		Las opciones son las hojas o nodos finales
+		del menú, contiene enlaces a las pantallas.
+		Como en los módulos y en las ramas pueden
+		ser o no accesibles a través del control
+		de acceso. El id es de uso interno.
+	-->
+	<!ELEMENT opcion (controlAcceso)?>
+	<!ATTLIST opcion
+		titulo		CDATA	#REQUIRED
+		url			CDATA	#REQUIRED
+		descripcion	CDATA	#IMPLIED
+		imagen		CDATA	#IMPLIED
+		sizeWindow  CDATA	#IMPLIED
+		abrirVentana	(true | false) "false">
+	
+	<!--
+		Elemento mediante el cual decidimos quien
+		puede acceder a que parte de la aplicación.
+		Funciona con roles y con módulos de acceso (no confundir
+		con los módulos de la palicación de los que hemos hablado)
+	-->	
+	<!ELEMENT controlAcceso (rolPermitido|moduloPermitido)+ >
+	
+	<!-- 
+		Mediante esta etiqueta decidimos que ROL puede
+		acceder al elemento del menú antecesor que la
+		contiene
+	-->
+	<!ELEMENT rolPermitido EMPTY>
+	<!ATTLIST rolPermitido
+		valor	CDATA	#REQUIRED>
+	
+	<!-- 
+		Mediante esta etiqueta decidimos que valor debe
+		tener un módulo de acceso para permitir acceder al elemento
+		del menú antecesor que lo contiene. El atributo ID
+		identifica al módulo.
+	-->
+	<!ELEMENT moduloPermitido (valorModulo)*>
+	<!ATTLIST moduloPermitido
+		id	CDATA	#REQUIRED>
+	
+	<!-- 
+		Mediante esta etiqueta incluimos la lista de posibles valores
+		de un módulo de acceso.
+	-->	
+	<!ELEMENT valorModulo EMPTY>
+	<!ATTLIST valorModulo
+		valor	CDATA	#REQUIRED>
+		
+<!-- 
+/////////////////////////////////////////////////////
+Fin de la DTD
+/////////////////////////////////////////////////////
+-->
+]>
+
+<menu aplicacion="DEMO-IGEP">
+	<modulo titulo="Herramientas" imagen="menu/menu.gif">			
+		<opcion titulo="Debug Igep" descripcion="Debugger de Igep" url="igep/_debugger.php" abrirVentana='true' imagen="menu/mensajes.gif">
+			<controlAcceso>
+				<rolPermitido valor="R_INFORMATICOS" />
+			</controlAcceso>
+		</opcion>
+		<opcion titulo="Genaro" descripcion="Generador de codigo gvHIDRA" url="include/genaro" abrirVentana='true' imagen="menu/30.gif"/>
+		<opcion titulo="Limpiar plantillas" descripcion="Limpiar plantillas de smarty" abrirVentana="true" url="limpiar_smarty.php" imagen="menu/24.gif" >
+			<controlAcceso>
+				<rolPermitido valor="R_INFORMATICOS" />
+				<moduloPermitido id="L_INFORM" />			
+				<moduloPermitido id="L_RINF" />
+			</controlAcceso>	
+		</opcion>		
+		<opcion titulo="Proteger datos usando hash" descripcion="Proteger datos usando hash" url="igep/include/igep_utils/protectdata.php" abrirVentana="true" imagen="menu/seguridad.gif">
+			<controlAcceso>
+				<rolPermitido valor="R_INFORMATICOS" />
+			</controlAcceso>
+		</opcion>
+	</modulo>
+</menu>

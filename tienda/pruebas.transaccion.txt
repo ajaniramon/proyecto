@@ -1,0 +1,19 @@
+String url
+String token
+String ccc
+BigDecimal importe
+String concepto
+
+
+20022003205555555555
+{"codigoCuentaCorriente":"20022003205555555555","importe":"1","token":"2045","concepto":"pene2"}
+
+2002 2002 78 7777222255
+
+{"cuentaOrigen":"","cuentaDestino":"00499400200846084608","importe":1000,"concepto":"asd","pin":"6424"}
+
+
+LOCAL{"cuentaOrigen":"10499400200846084608","cuentaDestino":"10499400880563987412","importe":1000,"concepto":"asd","pin":"0846"}
+SAMUEL {"cuentaOrigen":"20012001201234567891","cuentaDestino":"10499400880563987412","importe":69,"concepto":"samuel","pin":"0846"}
+
+

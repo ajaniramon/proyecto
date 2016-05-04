@@ -1,0 +1,19 @@
+﻿PROYECTO TODO
+----------------
+[x] PROPUESTAS DE MEJORA
+[x] MANUAL DE USUARIO
+[x] Requisitos iniciales
+[x] Actores del sistema
+[] Diagrama de casos de uso + descripción.
+[x] Diagrama de actividades de cada caso de uso.
+[x] Estructura de paquetes
+[] Diagrama de clases
+[] Diagrama de secuencia de cada caso de uso
+[x] Diagrama e/r
+[x] Tecnologías y herramientas 
+[] Maquetar memoria.
+
+
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Proyecto EcoRecipes</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://tienda-ajanicorp.rhcloud.com" property="cc:attributionName" rel="cc:attributionURL">Ramón Martínez</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>.<br />Creado a partir de la obra en <a xmlns:dct="http://purl.org/dc/terms/" href="http://tienda-ajanicorp.rhcloud.com" rel="dct:source">http://tienda-ajanicorp.rhcloud.com</a>.

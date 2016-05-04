@@ -1,0 +1,290 @@
+﻿body {
+    padding-top: 0px;
+    background-color: #DCCFB5;
+}
+.ocultar{
+  display: none;
+}
+.articuloImagen {
+    width: 320px;
+    height:150px !important;
+}
+
+/*-- Landing page --*/
+.slide {
+	top:0;
+	left:0;
+	height:100%;
+	width: 100%;
+
+	transition: height 0.9s ease-in-out;
+}
+
+.landingpage img {
+  width: 100%;
+}
+
+/*-- Fin Landing Page --*/
+
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+    /**/
+    text-align: center;
+  }
+
+/*ESTILOS PROPIOS AÑADIDOS
+------------------------------------------------------------------------------*/
+
+/* ---- CARRITO ---- */
+#capaCarrito{
+  height: 100px;
+  width: 25%;
+  float: right;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.button-wrapper {
+	width: 100px;
+  height: 65px;
+  display: inline-block;
+	background: #FFC96D;
+	padding: 8px;
+	box-shadow: inset 0px 2px 2px #B2B3B5, 0px 1px 0 #EFBD66;
+	border-radius: 50px;
+  border-color: #DCAD5C;
+}
+
+.button-wrapper a{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 50px;
+	font-weight: bold;
+  color: #5CB85C;
+}
+
+.button-wrapper:hover{
+  background-color: #FFE3B0;
+}
+
+#modalCarrito .modal-dialog{
+  width: 75%;
+  margin-top: 10%;
+}
+
+.media .pull-left{
+  padding-right: 0px;
+}
+
+h4.media-heading{
+  float: left;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.miniatura{
+  width:230px;
+  height:95px;
+}
+
+a.drill{
+  text-decoration: none;
+  color: black;
+}
+
+a.drill:hover{
+  color: #24BA2E;/*56C35D*/
+  cursor: pointer;
+}
+
+/* ./CARRITO */
+
+#contenedor{
+  min-height: 500px;/*Respetar altura de la pantalla de perfil*/
+}
+
+.centrado{
+  margin: 0px auto;
+  text-align: center;
+}
+
+.navbar-header img{
+  width: 320px;
+}
+
+.navbar{
+  background: linear-gradient(#97D89C, #317F36);
+  opacity: 0.8;
+  vertical-align: middle;
+}
+
+#toggle-categories {
+    display: none;
+    margin-bottom: 5px;
+    /*- Para que parezca un botón -*/
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 17px;
+    background: #036918;
+    padding: 8px 10px 8px 10px;
+    text-decoration: none;
+}
+
+#categorias, #categoriasCuenta{
+  font-weight: bold;
+}
+
+#categorias a:hover, #categoriasCuenta a:hover{
+  background-color: #46B546;
+  color: white;
+}
+
+#productos{
+  background-color: white;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  display: none; /*Para que el fade in funcione (animación de aparecer)*/
+}
+
+#contenedorCuenta{
+  background-color: white;
+  border-radius: 5px;
+  padding-bottom: 5px;
+}
+
+#productos h3, #contenedorCuenta h3{
+  border-bottom: 1px solid grey;
+  padding: 8px 0px 5px 15px;
+}
+
+/*----- AQUI -----*/
+
+.datosCuenta{
+  padding: 20px 40px;
+}
+
+.datosFactura{
+  margin-bottom: 10px;
+}
+
+.pdfImg{
+  cursor: pointer;
+}
+/*----------------*/
+
+.flechas_derecha {
+  float: right;
+  color: white;
+}
+
+.glyphicon-arrow-down{
+  display: none;
+}
+
+.articulo{
+  margin: 20px 0px;
+}
+
+.botonCarrito{
+  transition: transform 0.5s;
+
+}
+
+.botonCarrito:hover{
+  transform: scale(1.05);
+}
+
+a.social{
+  color: #5CB85C;
+}
+
+a.social:hover{
+  color: #398439;
+}
+
+a.social:link{
+  text-decoration: none;
+}
+
+#verCarritoBT{
+  font-size: 36px;
+}
+.cuerpo-modal{
+  position: relative;
+  padding: 15px;
+}
+.botonBorrarCarrito{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+/* Media Querys
+------------------------------------------------------------------------------*/
+@media all and (max-width: 991px) {
+  .carousel-padre{
+    display: none;
+  }
+
+  #categorias{
+    padding-right: 0px;
+    text-align: center;
+  }
+
+  .flechas_derecha{
+    display: none;
+  }
+
+  .glyphicon-arrow-down{
+    display: inline;
+    color: white;
+  }
+}
+
+@media all and (max-width: 771px) {
+  #toggle-categories {
+    display:block !important;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .thumbnail{
+    margin: 0 auto;
+    width: 290px;
+  }
+}

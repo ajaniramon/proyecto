@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gvHidraConfig [   
+	<!-- Etiqueta de inicio -->
+	<!ELEMENT gvHidraConfig (
+		gvHidraVersion |
+		applicationName |		
+		appVersion |
+		customTitle |
+		customDirName |
+		templatesCompilationDir |
+		reloadMappings |		
+		smartyCompileCheck |		
+		logSettings |
+		queryMode |
+		DSNZone 
+		)*
+	>
+	
+	
+	<!-- gvHidraVersion
+		Establece la versión de gvHidra.
+	-->
+	<!ELEMENT gvHidraVersion (#PCDATA)>
+	
+	<!-- applicationName
+		Establece el nombre de la aplicación
+	-->
+	<!ELEMENT applicationName (#PCDATA)>
+	
+	<!-- appVersion
+		Establece la versión de la aplicación.
+	-->
+	<!ELEMENT appVersion (#PCDATA)>
+	
+	<!-- customTitle
+		En la barra superior se ha designado un pequeño espacio para
+		un texto personalizado. Dicho texto puede fijarse a través del
+		elemento customTitle
+	-->
+	<!ELEMENT customTitle (#PCDATA)>
+	
+	<!-- templatesCompilationDir
+		Establece el directorio que utilizará Smarty para compilar las TPL
+	-->
+	<!ELEMENT templatesCompilationDir (#PCDATA)>	
+	
+	<!-- reloadMappings
+		Indica si se recarga el fichero de mappings en cada petición
+	-->
+	<!ELEMENT reloadMappings (#PCDATA)>
+
+	<!-- smartyCompileCheck
+		Indica si smarty tiene que comprobar si se ha modificado alguna plantilla y en caso afirmativo recargarla
+	-->
+	<!ELEMENT smartyCompileCheck (#PCDATA)>
+	
+	<!-- customDirName
+		Establece el nombre del directorio de customización. Son modificaciones
+		o extensiones	que van a ser comunes a una organización o a varias
+		aplicaciones. Por ejemplo, las extensiones del Framework propias de la CIT
+	-->
+	<!ELEMENT customDirName (#PCDATA)>
+   <!ATTLIST customDirName
+        path    CDATA    #IMPLIED
+    >
+	
+	<!-- logSettings
+		Establece parámetros del LOG, como:
+		- status: El nivel de LOG
+		- dsnRef: Referencia al DSN utilizado para el LOG
+	-->
+	<!ELEMENT logSettings EMPTY>
+	<!ATTLIST logSettings
+		status (LOG_NONE | LOG_ERRORS | LOG_AUDIT | LOG_ALL) "LOG_NONE"
+		dsnRef		IDREF	#IMPLIED>
+	
+	<!-- queryMode
+		Establece la forma de construir las clausulas WHERE
+		- status: 0,1,2,3
+	-->
+	<!ELEMENT queryMode EMPTY>
+	<!ATTLIST queryMode
+		status (0 | 1 | 2) "2">	
+	
+	<!-- DSNZone
+		Seccción que contendrá distintos DSN
+	-->
+	<!ELEMENT DSNZone (dbDSN | wsDSN)+>	
+	
+	<!-- dbDSN
+		Define un DSN de conexión a una BD relacional. Se indentificará por un atributo "id" único.
+		El atributo dbDSN indica el tipo de driver de conexión		
+		Cuando conectemos a oracle, podemos optar por una conexión con especificación completa
+		(atributo sgbd de tipo 'thin' u 'oracle-thin') o por una conexión con alias (atributo sgbd
+		de tipo 'oci', 'oci8' u 'oracle'). 
+		Con conexiones de tipo 'thin' u 'oracle-thin' debemos especificar todos los elementos
+		de la conexión (dbHost, dbPort, dbDatabase, dbUser y dbPassword).
+		En el caso de conexiones con alias, de tipo 'oci', 'oci8' u 'oracle', sólo debemos
+		especificar en el atributo dbHost un SID válido en el TNSNames y el dbUser (usuario) y 
+		dbPassword (contraseña).  
+		Para el driver, por defecto se utiliza la conexion mdb2. Se puede utilizar la conexion pdo.
+	-->
+	<!ELEMENT dbDSN (dbHost, dbPort?, dbDatabase?, dbUser, dbPassword)? >
+	<!ATTLIST dbDSN
+		id     		ID		#REQUIRED
+		sgbd (
+			postgres | pgsql |
+			oracle | oci8 | oci | 
+			thin | oracle-thin |
+			mysql | sqlite
+		) "postgres"
+		driver (mdb2 | pdo) "mdb2"
+	>
+	
+	
+	<!-- En el caso de Oracle con conexión OCI se utiliza dbHost para incluir el SID -->
+	<!ELEMENT dbHost (#PCDATA)>	
+	<!ELEMENT dbPort (#PCDATA)>	
+	<!ELEMENT dbDatabase (#PCDATA)>
+	<!ELEMENT dbUser (#PCDATA)>
+	<!ELEMENT dbPassword (#PCDATA)>
+	
+	
+	<!-- wsDSN
+		Define un DSN de conexión a un Web Service. Se indentificará por un atributo "id" único.
+	-->
+	<!ELEMENT wsDSN (uriWSDL?, wsUser?, wsPassword?, wsCertificatePath?, wsKeyPath?, wsPassPhrase?, wsPAITraceToken?) >
+	<!ATTLIST wsDSN
+		id     		ID		#REQUIRED		
+	>
+	<!-- uriWSDL URI para localizar el fichero descriptor del servicio Web wsdl (Web Service Descriptor Language)  -->
+	<!ELEMENT uriWSDL (#PCDATA)>
+	<!-- wsUser Si el WS requiere autenticación vía USER/PASS indica el usuario -->
+	<!ELEMENT wsUser (#PCDATA)>
+	<!-- wsUser Si el WS requiere autenticación vía USER/PASS indica la contraseña -->
+	<!ELEMENT wsPassword (#PCDATA)>
+	<!-- wsCertificateFilePath Si el WS requiere autenticación vía certificado, indica localización del fichero -->
+	<!ELEMENT wsCertificateFilePath (#PCDATA)>
+	<!-- certificateFormat Formato del certificado -->
+	<!ATTLIST wsCertificateFilePath
+		certificateFormat (PEM ) "PEM"		
+	>
+	<!-- wsKeyFilePath Si el WS requiere autenticación vía certificado, indica localización del fichero KEY -->
+	<!ELEMENT wsKeyFilePath (#PCDATA)>
+	<!-- wsPassPhrase Si el WS requiere autenticación vía certificado, indica la frase de paso del mismo -->
+	<!ELEMENT wsPassPhrase (#PCDATA)>
+	<!-- wsPAITraceToken Si el WS es de la PAI se indica el ID de la aplicación para trazabilidad -->
+	<!ELEMENT wsPAITraceIdApp (#PCDATA)>
+	<!-- enablePAITrace Indica si se activa o no la trazabilidad en la invocación al WS de la PAI-->
+	<!ATTLIST wsPAITraceIdApp
+		enablePAITrace (true | false) "true"		
+	>
+
+]>
+
+<gvHidraConfig>	
+<!-- 
+	Fichero de configuración del framework gvHidra.
+	Este fichero aparecerá como mínimo dentro del directorio IGEP, pero
+	también podrá aparecer en cada directorio "custom", o en el directorio
+	raíz de la aplicación.
+	A través de este sistema, podremos 	sobreescribir (personalizar) valores
+	a nivel de:
+	- Framework (igep/gvHidraConfig.inc.xml)
+	- Grupo de aplicaciones u organización (igep/custom/gvHidraConfig.inc.xml)
+	- Aplicación (APL/gvHidraConfig.inc.xml) donde "APL" es el directorio que 
+	contiene la aplicación (el directorio raíz de la aplicación")
+	En caso de aparecer varios valores para un mismo parámetro en cada uno de los 
+	ficheros de los que hemos hablado, la prioridad sera (de más a menos)
+	1. Nivel de aplicación
+	2. Nivel de custom
+	3. Nivel de gvHidra.
+-->
+	<gvHidraVersion>4.2.3</gvHidraVersion>
+	<customTitle></customTitle>
+	<templatesCompilationDir>templates_c/</templatesCompilationDir>
+	<reloadMappings>false</reloadMappings>
+	<smartyCompileCheck>false</smartyCompileCheck>
+	<logSettings status='LOG_NONE' />
+	<queryMode status='2' />
+	
+</gvHidraConfig>

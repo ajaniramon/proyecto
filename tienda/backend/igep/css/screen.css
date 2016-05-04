@@ -1,0 +1,80 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	border: 0px;
+ }
+
+div.boton {
+	display: block; 
+	position: absolute;
+    top: 5px;
+	right: 10px;
+}
+
+table.center
+{  
+	margin-left:auto; margin-right:auto;
+}
+
+#titulo
+{
+	font-size: 12px;
+	padding: 5px;
+	text-align: center;
+	background-color: #F0E0A0;
+	border-color: #F0E0A0;
+	border-style: solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+td.col_titulo
+{
+	font-size: 12px;
+	padding_top: 2px;
+	padding_bottom: 2px;
+	padding_left: 5px;
+	padding_right: 5px;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #8F8F8F;
+	border-color: #8F8F8F;
+	border-style: solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+td.col
+{
+	font-size: 12px;
+	padding_top: 2px;
+	padding_bottom: 2px;
+	padding_left: 5px;
+	padding_right: 5px;
+	text-align: center;
+	border-style: solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+td.pie
+{
+	font-size: 12px;
+	padding_top: 2px;
+	padding_bottom: 2px;
+	padding_left: 5px;
+	padding_right: 5px;
+	text-align: right;
+	border-style: solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}

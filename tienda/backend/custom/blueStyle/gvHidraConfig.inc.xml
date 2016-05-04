@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gvHidraConfig [   
+	<!-- Etiqueta de inicio -->
+	<!ELEMENT gvHidraConfig (
+		applicationName |
+		appVersion |
+		templatesCompilationDir |
+		reloadMappings |		
+		smartyCompileCheck |		
+		logSettings |
+		queryMode |
+		DSNZone | smtpServer
+		)*
+	>
+	
+	
+	<!-- applicationName
+		Establece el nombre de la aplicación
+	-->
+	<!ELEMENT applicationName (#PCDATA)>
+	
+	<!-- templatesCompilationDir
+		Establece el directorio que utilizará Smarty para compilar las TPL
+	-->
+	<!ELEMENT templatesCompilationDir (#PCDATA)>
+	
+	<!-- reloadMappings
+		Indica si se recarga el fichero de mappings en cada petición
+	-->
+	<!ELEMENT reloadMappings (#PCDATA)>
+	
+	<!-- smartyCompileCheck
+		Indica si smarty tiene que comprobar si se ha modificado alguna plantilla y en caso afirmativo recargarla
+	-->
+	<!ELEMENT smartyCompileCheck (#PCDATA)>
+	
+	<!-- appVersion
+		Establece la versión de la aplicación.
+	-->
+	<!ELEMENT appVersion (#PCDATA)>
+	
+	
+	<!-- logSettings
+		Establece parámetros del LOG, como:
+		- status: El nivel de LOG
+		- dsnRef: Referencia al DSN utilizado para el LOG
+	-->
+	<!ELEMENT logSettings EMPTY>
+	<!ATTLIST logSettings
+		status (LOG_NONE | LOG_ERRORS | LOG_AUDIT | LOG_ALL) "LOG_NONE"
+		dsnRef		IDREF	#IMPLIED>
+	
+	<!-- queryMode
+		Establece la forma de construir las clausulas WHERE
+		- status: 0,1,2
+	-->
+	<!ELEMENT queryMode EMPTY>
+	<!ATTLIST queryMode
+		status (0 | 1 | 2) "2">		
+	
+	<!-- DSNZone
+		Seccción que contendrá distintos DSN
+	-->
+	<!ELEMENT DSNZone (dbDSN | wsDSN)+>	
+	
+	<!-- dbDSN
+		Define un DSN de conexión a una BD relacional. Se indentificará por un atributo "id" único.
+		El atributo sgbd del elemento dbDSN indica el tipo de SGBD al que nos conectamos.		
+		Cuando conectemos a oracle, podemos optar por una conexión con especificación completa
+		(atributo sgbd de tipo 'thin' u 'oracle-thin') o por una conexión con alias (atributo sgbd
+		de tipo 'oci', 'oci8' u 'oracle'). 
+		Con conexiones de tipo 'thin' u 'oracle-thin' debemos especificar todos los elementos
+		de la conexión (dbHost, dbPort, dbDatabase, dbUser y dbPassword).
+		En el caso de conexiones con alias, de tipo 'oci', 'oci8' u 'oracle', sólo debemos
+		especificar en el atributo dbHost un SID válido en el TNSNames y el dbUser (usuario) y 
+		dbPassword (contraseña).  
+	-->
+	<!ELEMENT dbDSN (dbHost, dbPort?, dbDatabase?, dbUser, dbPassword)? >
+	<!ATTLIST dbDSN
+		id     		ID		#REQUIRED
+		sgbd (
+			postgres | pgsql |
+			oracle | oci8 | oci | 
+			thin | oracle-thin |
+			mysql | sqlite
+		) "postgres"
+	>
+	
+	
+	<!-- En el caso de Oracle con conexión OCI se utiliza dbHost para incluir el SID -->
+	<!ELEMENT dbHost (#PCDATA)>	
+	<!ELEMENT dbPort (#PCDATA)>	
+	<!ELEMENT dbDatabase (#PCDATA)>
+	<!ELEMENT dbUser (#PCDATA)>
+	<!ELEMENT dbPassword (#PCDATA)>
+	
+	
+	<!-- wsDSN
+		Define un DSN de conexión a un Web Service. Se indentificará por un atributo "id" único.
+	-->
+	<!ELEMENT wsDSN (uriWSDL?, wsUser?, wsPassword?) >
+	<!ATTLIST wsDSN
+		id     		ID		#REQUIRED
+	>
+	<!--URI para localizar el fichero descriptor del servicio Web wsdl (Web Service Descriptor Language)  -->
+	<!ELEMENT uriWSDL (#PCDATA)>
+	<!ELEMENT wsUser (#PCDATA)>
+	<!ELEMENT wsPassword (#PCDATA)>
+
+	<!-- smtpServer
+		Define el servidor de SMTP
+	-->
+	<!ELEMENT smtpServer (smtpHost, smtpPort? , smtpUser?, smtpPassword?)>	
+	<!ELEMENT smtpHost (#PCDATA)>	
+	<!ELEMENT smtpPort (#PCDATA)>	
+	<!ELEMENT smtpUser (#PCDATA)>
+	<!ELEMENT smtpPassword (#PCDATA)>	
+]>
+
+<gvHidraConfig>	
+<!-- 
+	Fichero de configuración del framework gvHidra. Para la personalización a nivel
+	de organización (CUSTOM)
+	Los valores establecidos en este fichero pueden sobreescribirse en el fichero de
+	configuración de nivel de aplicación o bien dinámicamente en la aplicación.
+-->
+	<logSettings status='LOG_NONE'/>
+		
+	<smtpServer>
+			<smtpHost>smtp.gva.es</smtpHost>
+	</smtpServer>
+	
+</gvHidraConfig>
+
+
+

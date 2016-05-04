@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project name="igep" default="define" basedir=".">
+
+	<target name="define"/>
+	
+	<target name="post.desplegar" description="Refina el despliege del modulo " if="post.desplegar.refinar">
+		<!-- Tareas a realizar con el módulo ya desplegado en la aplicacion anfitrion -->
+		<!-- 
+			Usa las siguientes variables del build-common.xml
+				${destino}	directorio donde se esta desplegando el módulo
+				${cvsgardel} repositorio cvs por defecto
+		-->
+
+		<property name="patron-igep" value="inv-igep"/>
+		<property name='patron-igep.tag' value='inv-igep-1_6_3'/>
+		<property name="cvspatron" value="${cvsgardel}" />	
+		<!-- value=":ext:${user.name}@gardel.coput.gva.es:/home/cvsroot"/ -->
+
+		<!-- comprueba que exista la estructura necesaria
+			NOTA: lo que se comprueba despues no es el value de la propiedad (TRUE, FALSE o lo que sea),
+					sino que la propiedad este definida o no (se cual sea su valor) -->
+		<condition property="estructura" value="TRUE">
+			<!-- el criterio para saber si hay que crear la estructura 
+				es que no existen... -->
+			<not>
+				<and>
+					<!-- ...estos ficheros -->
+					<available  file='gvHidraConfig.inc.xml' />
+					<available  file='mensajes.php' />
+					<available  file='index.php' />
+					<available  file='phrame.php' />
+					<!-- ...y estos directorios -->
+					<available type="dir" file='actions' />
+					<available  type="dir" file='include' />
+					<available  type="dir" file='views' />
+					<available  type="dir" file='plantillas' />
+				</and>
+			</not>
+		</condition>
+		<antcall target="crearestructura" />
+	</target>
+
+	<!-- crea la estructura a partir del patron, si se define la propiedad 'estructura' -->
+	<target name="crearestructura" if="estructura">
+
+		<!-- Saca el proyecto patron del CVS -->
+		<cvs	cvsroot='${cvspatron}'
+				command='export'
+				dest='${build.dir}'
+				package='${patron-igep}'
+				tag='${patron-igep.tag}'
+		/>
+
+		<!-- Mueve al directorio del proyecto 'anfitrion' de igep -->
+		<move todir="${destino}">
+			<fileset
+				dir="${build.dir}/${patron-igep}"
+				includes ="config.php,
+							mensajes.php,
+							import.txt,
+							index.php,
+							limpiar_smarty.php,
+							phrame.php,
+				
+							include/menuModulos.xml,
+							include/menuAdministracion.xml,
+							include/menuHerramientas.xml,
+							include/include.php,
+							include/mappings.php,
+
+							actions/listados/InvListCertificados.php,
+							plantillas/listados/l_certificados.tpl,
+							views/listados/l_certificados.php,
+							actions/tablasMaestras/TinvTipoBajas.php,
+							plantillas/tablasMaestras/p_tipobajas.tpl,
+							views/tablasMaestras/p_tipobajas.php				
+				"/>
+		</move>
+		<!-- BORRA el origen (el que se creo con el export del CVS -->
+		<delete dir='${build.dir}/${patron-igep}'/>
+	</target>
+</project>	

@@ -1,0 +1,451 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Genaro: Generación automática en gvHidra</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="AEN1"
+></A
+>Chapter 1. Genaro: Generación automática en gvHidra</H1
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="AEN3"
+>1.1. Genaro: Generación automática en gvHidra</A
+></H1
+><P
+>Desde las versiones 3.1.x, gvHidra cuenta con una herramienta de
+    generación de código que nos permite generar de forma sencilla y rápida un
+    mantenimiento. Esta herramienta, Genaro, a través de 5 parámetros básicos,
+    se conecta a la base de datos y construye una ventana funcional. Los
+    mantenimientos tienen la lógica necesaria para realizar la gestión de
+    búsqueda, altas, bajas y modificaciones al 100%; pero no tienen lógica
+    específica de la aplicación (validaciones específicas,...). Por esta
+    razón, en la mayoría de los casos, debe entenderse como un punto de
+    partida para nuestras ventanas.</P
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="AEN6"
+>1.1.1. ¿Qué genera?</A
+></H2
+><P
+>La versión actual del genaro realiza por nosotros la generación de
+      los siguientes ficheros:</P
+><P
+></P
+><UL
+><LI
+><P
+>actions: genera las clases manejadoras (1 o N dependiendo del
+          patrón). Estas clases tienen las consultas, las asociaciones con los
+          campos, las asociaciones entre los maestros y sus detalles (en el
+          caso de estos patrones) y los tipos de datos (con las validaciones
+          de los mismos). Desde la versión 2.0.0 se puede parametrizar parte
+          de la información de los campos: tipo de componente, texto asociado,
+          valor por defecto, ...</P
+></LI
+><LI
+><P
+>views: genera el fichero de la vista.</P
+></LI
+><LI
+><P
+>plantillas: genara la plantilla tpl de la ventana.</P
+></LI
+><LI
+><P
+>include: edita el fichero include para incluir en el proyecto
+          las nuevas clases.</P
+></LI
+><LI
+><P
+>mappings: edita el fichero de mapeos para asociar las acciones
+          con la clase que las gestiona (las nuevas clases
+          manejadoras).</P
+></LI
+><LI
+><P
+>menuModulos.xml: edita el menu para que aparezca la nueva
+          entrada. Agrupa esta entrada por el módulo.</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="AEN22"
+>1.1.2. ¿Cómo lo instalo?</A
+></H2
+><P
+>En primer lugar tenemos que descargar el paquete de la web de
+      gvHidra o directamente la última versión desde la forja de OSOR.</P
+><P
+></P
+><UL
+><LI
+><P
+>Desde
+          la página de gvHidra (www.gvhidra.org)</P
+></LI
+><LI
+><P
+>Desde la
+          forja de OSOR (http://forge.osor.eu/projects/genaro/)</P
+></LI
+></UL
+><P
+>Una vez descargado, lo dejamos en el directorio include de nuestra
+      aplicación gvHidra. Si no tenemos aun la estructura de la misma
+      consultar el punto "Instalación del entorno" en este mismo
+      manual.</P
+><P
+>El genaro, recoge la información de las conexiones de nuestra
+      aplicación, por lo que necesitamos que estén definidas en el fichero
+      gvHidraConfig.inc.xml de la aplicación (ubicado en la raiz del
+      proyecto).</P
+><P
+>Una vez definidas, debemos acceder a la herramienta
+      http://&#60;ubicacionAplicacion&#62;/include/genaro. Por comodidad, se
+      recomienda añadir esta entrada de menu en el menu de herramientas. Al
+      acceder a esta url nos aparecerá el siguiente formulario.</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/genaroPantallaInicial.png"
+ALIGN="center"></P
+></DIV
+></P
+><P
+>Finalmente, para poder utilizar la herramienta tenemos que dar una
+      serie de permisos de lectura/escritura ya que va a ficheros en nuestra
+      estructura. Por ello, se debe dar permisos de lectura/escritura al
+      usuario del servidor web (generalmente el usuario de Apache) a todo
+      nuestro proyecto.</P
+><P
+><SPAN
+CLASS="bold"
+><B
+CLASS="emphasis"
+>NOTA IMPORTANTE:</B
+></SPAN
+> Por seguridad,
+      tanto el tema de permisos como el acceso a esta herramienta deben
+      revisarse antes de sacar a producción. Se trata de una herramienta de
+      desarrollo y SOLO debería estar disponible en dichos entornos.</P
+></DIV
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="AEN42"
+>1.1.3. ¿Cómo utilizarlo?</A
+></H2
+><P
+>En primer lugar, tenemos que escoger la conexión de base de datos
+      que queremos utilizar. Para ello, en el desplegable de la parte superior
+      derecha (al lado de las solapa de Patrón Maestro detalle), seleccionamos
+      el dsn deseado. Los ids que aparecen, son los que hemos configurado en
+      nuestra aplicación.</P
+><P
+>Una vez seleccionada la conexión, debemos decidir si vamos a
+      generar un patrón simple o un patrón maestro detalle. Vamos a revisar
+      cada una de las ventanas.</P
+><P
+>Para genarar un patrón simple tenemos la siguiente ventana</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/genaroPatronSimple.png"
+ALIGN="center"></P
+></DIV
+></P
+><P
+>Debemos indicar los siguientes parámetros:</P
+><P
+></P
+><UL
+><LI
+><P
+>Nombre del módulo: es un agrupador de mantenimientos. Nos
+          permite agrupar los mantenimiento de nuestra aplicación de forma que
+          sea más sencillo su manejo.</P
+></LI
+><LI
+><P
+>Clase Manejadora: el nombre de la clase.</P
+></LI
+><LI
+><P
+>Tabla de la bd: tabla sobre la que queremos realizar el
+          mantenimiento.</P
+></LI
+><LI
+><P
+>Patrón: seleccionamos la forma de visulización de la
+          información (Tabular, Registro o Tabular-Registro).</P
+></LI
+></UL
+><P
+>Pulsamos generar y aparece la siguiente ventana:</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/genaroPatronSimpleGenerado.png"
+ALIGN="center"></P
+></DIV
+></P
+><P
+>Vamos a nuestra aplicación. Entramos de nuevo desde la validación
+      (es importante porque borramos caches y cookies). Vemos que se ha creado
+      una nueva entrada de menú y el resultado será algo como esto:</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/genaroPatronSimpleResultado.png"
+ALIGN="center"></P
+></DIV
+></P
+><P
+>Nota: recomendamos ver en el código fuente todos los ficheros
+      generados para entender la estructura del código.</P
+><P
+>Para generar patrones maestro detalle tenemos la siguiente
+      ventana</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/genaroPatronMD.png"
+ALIGN="center"></P
+></DIV
+></P
+><P
+>Debemos indicar los siguientes parámetros:</P
+><P
+></P
+><UL
+><LI
+><P
+>Nombre del módulo: es un agrupador de mantenimientos. Nos
+          permite agrupar los mantenimientos de nuestra aplicación de forma
+          que sea más sencillo su manejo.</P
+></LI
+><LI
+><P
+>Seccion Maestro:</P
+><P
+></P
+><UL
+><LI
+><P
+>Clase Manejadora: el nombre de la clase del maestro</P
+></LI
+><LI
+><P
+>Tabla: tabla de la base de datos del maestro.</P
+></LI
+><LI
+><P
+>Clave Primaria: campos que componen la clave primaria del
+              maestro.</P
+></LI
+><LI
+><P
+>Patrón: Seleccionamos la forma de visualización del
+              maestro (Tabular o Registro).</P
+></LI
+><LI
+><P
+>Numero de detalles: número de detalles que va a tener
+              nuestra ventana.</P
+></LI
+></UL
+></LI
+><LI
+><P
+>Seccion Detalle:</P
+><P
+></P
+><UL
+><LI
+><P
+>Clase Manejadora: el nombre de la clase del detalle</P
+></LI
+><LI
+><P
+>Tabla: tabla de la base de datos del detalle.</P
+></LI
+><LI
+><P
+>Clave Ajena: campos que relacionan la tabla con el
+              maestro. Corresponde con los campos que son clave ajena
+              referenciada a los campos de la clave primaria de la tabla
+              maestro. Si son varios, debe respetarse el orden que se ha
+              indicado en el maestro.</P
+></LI
+><LI
+><P
+>Patrón del detalle: Seleccionamos la forma de
+              visualización del detalle (Tabular, Registro o
+              Tabular-Registro).</P
+></LI
+></UL
+></LI
+></UL
+><P
+>Pulsamos generar y aparece la siguiente ventana</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/genaroPatronMDGenerado.png"
+ALIGN="center"></P
+></DIV
+></P
+><P
+>Vamos a nuestra aplicación. Entramos de nuevo desde la validación
+      (es importante porque borramos caches y cookies). Vemos que se ha creado
+      una nueva entrada de menú y el resultado es el siguiente:</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/genaroPatronMDResultado.png"
+ALIGN="center"></P
+></DIV
+></P
+></DIV
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="AEN115"
+>1.1.4. Parametrización</A
+></H2
+><P
+>Desde la versión 2.0.0 de GENARO, aparece un botón destinado a la
+      parametrización de campos. Esto nos permite especificar información del
+      panel que vamos a crear. Concretamente, al pulsar sobre el botón nos
+      aparecerán todos los campos de la tabla seleccionada donde podremos
+      especificar para cada uno de ellos:</P
+><P
+></P
+><UL
+><LI
+><P
+>Título: texto asociado que aparece vinculado al campo en la
+          TPL. Permite identificar al usuario el campo</P
+></LI
+><LI
+><P
+>Tamaño: tamaño en pantalla que tendrá el campo para su
+          visualización.</P
+></LI
+><LI
+><P
+>Requerido: indica si el campo es obligatorio o no.</P
+></LI
+><LI
+><P
+>Visible: indica si el campo es visible o no.</P
+></LI
+><LI
+><P
+>Componente: indica el tipo de componente: Lista, Radio, Area
+          Texto o Campo de Texto.</P
+></LI
+></UL
+><P
+>Una vez acabada la parametrización, pulsando el botón Aceptar
+      indicaremos al sistema que debe tener en cuenta dichos cambios. Con el
+      botón Cancelar renunciamos a ellos y con el Limpiar borramos cualquier
+      operación anterior. La siguiente imagen muestra la ventana de
+      parametrización:</P
+><P
+><DIV
+CLASS="mediaobject"
+><P
+><IMG
+SRC="images/parametrizacion.png"
+ALIGN="center"></P
+></DIV
+></P
+></DIV
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="AEN134"
+>1.1.5. Consejos prácticos</A
+></H2
+><P
+>Hay una serie de recomendaciones que se deben tener en cuenta a la
+      hora de utilizar el generador. La mayor parte de ellas tienen relación
+      con el uso del SGBD Oracle. Con este motor, se dificulta la obtención
+      por ingeniería inversa de la información de la tabla, por lo que se
+      recomienda tener en cuenta:</P
+><P
+></P
+><UL
+><LI
+><P
+>Acceso a la información. En ocasiones, el usuario con el que
+          se conecta no tiene acceso a la información. Por ello se recomienda
+          utilizar el usuario propietario del esquema. En todo caso, si
+          detecta problemas consulte con su DBA.</P
+></LI
+><LI
+><P
+>Generación de Maestros detalles: el sistema intentará proponer
+          las relaciones entre el maestro y el detalle. Si no es capaz, dejará
+          un check en el detalle que al marcarlo mostrará todas las tablas del
+          sistema para que el usuario introduzca la relación.</P
+></LI
+><LI
+><P
+>Nombre de campos en mayúsculas. Debe tener en cuenta que el
+          SGBD Oracle trabaja con los nombre de campos en mayúsculas, por lo
+          que al introducirlos tome esa precaución para evitar
+          problemas.</P
+></LI
+></UL
+></DIV
+></DIV
+></DIV
+></BODY
+></HTML
+>

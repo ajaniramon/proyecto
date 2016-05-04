@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gvHidraConfig [   
+	<!-- Etiqueta de inicio -->
+	<!ELEMENT gvHidraConfig (
+		applicationName |
+		appVersion |
+		customTitle |
+		barTitle |
+		customDirName |
+		templatesCompilationDir |
+		temporalDir |		
+		reloadMappings |		
+		smartyCompileCheck |		
+		logSettings |
+		breadcrumb |
+		queryMode |
+		extConfigDir |	
+		queryMode |
+		DSNZone | smtpServer |
+		propertyZone |
+		startMsg 
+		)*
+	>
+	
+	
+	<!-- applicationName
+		Establece el código / acrónimo o nombre corto  de la aplicación
+	-->
+	<!ELEMENT applicationName (#PCDATA)>
+	
+	<!-- appVersion
+		Establece la versión de la aplicación.
+	-->
+	<!ELEMENT appVersion (#PCDATA)>
+
+	<!-- extConfigDir
+		Establece el directorio de configuracion externa
+	-->
+	<!ELEMENT extConfigDir (#PCDATA)>
+	<!ATTLIST extConfigDir
+		fileName CDATA "gvHidraConfig.inc.xml">
+	
+	<!-- customTitle
+		En la barra superior se ha designado un pequeño espacio para
+		un texto personalizado. Dicho texto puede fijarse a través del
+		elemento customTitle
+	-->
+	<!ELEMENT customTitle (#PCDATA)>
+	
+	<!-- barTitle
+		En la barra superior se ha designado un pequeño espacio para
+		un texto personalizado. Dicho texto puede fijarse a través del
+		elemento barTitle
+	-->
+	<!ELEMENT barTitle (#PCDATA)>
+	
+	<!-- templatesCompilationDir
+		Establece el directorio que utilizará Smarty para compilar las TPL
+	-->
+	<!ELEMENT templatesCompilationDir (#PCDATA)>	
+	
+	<!-- temporalDir
+		Establece el directorio temporal para gestion interna del FW (sesiones...)
+	-->
+	<!ELEMENT temporalDir (#PCDATA)>
+	
+	<!-- reloadMappings
+		Indica si se recarga el fichero de mappings en cada petición
+	-->
+	<!ELEMENT reloadMappings (#PCDATA)>
+
+	<!-- smartyCompileCheck
+		Indica si smarty tiene que comprobar si se ha modificado alguna plantilla y en caso afirmativo recargarla
+	-->
+	<!ELEMENT smartyCompileCheck (#PCDATA)>
+	
+	<!-- customDirName
+		Establece el nombre del directorio de customización. Son modificaciones
+		o extensiones	que van a ser comunes a una organización o a varias
+		aplicaciones. Por ejemplo, las extensiones del Framework propias de la CIT
+	-->
+	<!ELEMENT customDirName (#PCDATA)>
+	<!ATTLIST customDirName
+        path    CDATA    #IMPLIED
+    >
+	
+	<!-- logSettings
+		Establece parámetros del LOG, como:
+		- status: El nivel de LOG
+		- dnsRef: Referencia al DSN utilizado para el LOG
+	-->
+	<!ELEMENT logSettings EMPTY>
+	<!ATTLIST logSettings
+		status (LOG_NONE | LOG_ERRORS | LOG_AUDIT | LOG_ALL) "LOG_NONE"
+		dsnRef		IDREF	#IMPLIED>
+	
+	<!-- ubicacion
+		Mostrará la ubicación del módulo en el que nos encontramos en la pantalla principal
+	-->
+	<!ELEMENT breadcrumb EMPTY>
+	<!ATTLIST breadcrumb
+		visible (false | true) "false">
+	
+	<!-- queryMode
+		Establece la forma de construir las clausulas WHERE
+		- status: 0,1,2,3
+	-->
+	<!ELEMENT queryMode EMPTY>
+	<!ATTLIST queryMode
+		status (0 | 1 | 2) "2">	
+	
+	<!-- DSNZone
+		Seccción que contendrá distintos DSN
+	-->
+	<!ELEMENT DSNZone (dbDSN | wsDSN)+>	
+	
+	<!-- dbDSN
+		Define un DSN de conexión a una BD relacional. Se indentificará por un atributo "id" único.
+		El atributo sgbd del elemento dbDSN indica el tipo de SGBD al que nos conectamos.		
+		Cuando conectemos a oracle, podemos optar por una conexión con especificación completa
+		(atributo sgbd de tipo 'thin' u 'oracle-thin') o por una conexión con alias (atributo sgbd
+		de tipo 'oci', 'oci8' u 'oracle'). 
+		Con conexiones de tipo 'thin' u 'oracle-thin' debemos especificar todos los elementos
+		de la conexión (dbHost, dbPort, dbDatabase, dbUser y dbPassword).
+		En el caso de conexiones con alias, de tipo 'oci', 'oci8' u 'oracle', sólo debemos
+		especificar en el atributo dbHost un SID válido en el TNSNames y el dbUser (usuario) y 
+		dbPassword (contraseña).
+		Para el driver, por defecto se utiliza la conexion mdb2. Se puede utilizar la conexion pdo.
+	-->
+	<!ELEMENT dbDSN (dbHost, dbPort?, dbDatabase?, dbUser, dbPassword)? >
+	<!ATTLIST dbDSN
+		id     		ID		#REQUIRED
+		sgbd (
+			postgres | pgsql |
+			oracle | oci8 | oci | 
+			thin | oracle-thin |
+			mysql | sqlite | sqlsrv
+		) "postgres"
+		driver (mdb2 | pdo) "mdb2"
+	>
+	
+	<!-- En el caso de Oracle con conexión OCI se utiliza dbHost para incluir el SID -->
+	<!ELEMENT dbHost (#PCDATA)>	
+	<!ELEMENT dbPort (#PCDATA)>	
+	<!ELEMENT dbDatabase (#PCDATA)>
+	<!ELEMENT dbUser (#PCDATA)>
+	<!ELEMENT dbPassword (#PCDATA)>
+	
+	
+	<!-- wsDSN
+		Define un DSN de conexión a un Web Service. Se indentificará por un atributo "id" único.
+	-->
+	<!ELEMENT wsDSN (uriWSDL?, wsUser?, wsPassword?, wsCertificatePath?, wsKeyPath?, wsPassPhrase?, wsPAITraceIdApp?) >
+	<!ATTLIST wsDSN
+		id     		ID		#REQUIRED		
+	>
+	<!-- uriWSDL URI para localizar el fichero descriptor del servicio Web wsdl (Web Service Descriptor Language)  -->
+	<!ELEMENT uriWSDL (#PCDATA)>
+	<!-- wsUser Si el WS requiere autenticación vía USER/PASS indica el usuario -->
+	<!ELEMENT wsUser (#PCDATA)>
+	<!-- wsUser Si el WS requiere autenticación vía USER/PASS indica la contraseña -->
+	<!ELEMENT wsPassword (#PCDATA)>
+	<!-- wsCertificatePath Si el WS requiere autenticación vía certificado, indica localización del fichero -->
+	<!ELEMENT wsCertificatePath (#PCDATA)>	
+	<!ATTLIST wsCertificatePath
+		serial CDATA #REQUIRED
+		certificateFormat (PEM) "PEM"
+	>
+	<!-- wsKeyFilePath Si el WS requiere autenticación vía certificado, indica localización del fichero KEY -->
+	<!ELEMENT wsKeyPath (#PCDATA)>
+	<!-- wsKeyPath Si el WS requiere autenticación vía certificado, indica la frase de paso del mismo -->
+	<!ELEMENT wsPassPhrase (#PCDATA)>
+	<!-- wsPAITraceIdApp Si el WS es de la PAI se indica el ID de la aplicación para trazabilidad -->
+	<!ELEMENT wsPAITraceIdApp (#PCDATA)>
+	<!-- enablePAITrace Indica si se activa o no la trazabilidad en la invocación al WS de la PAI-->
+	<!ATTLIST wsPAITraceIdApp		
+		enablePAITrace (true | false) "true"		
+	>
+	
+	<!--smtpServer Define el servidor SMTP  -->
+	<!ELEMENT smtpServer (smtpHost, smtpPort?, smtpUser?, smtpPassword?)>
+	<!ELEMENT smtpHost (#PCDATA)>
+	<!ELEMENT smtpPort (#PCDATA)>
+	<!ELEMENT smtpUser (#PCDATA)>
+	<!ELEMENT smtpPassword (#PCDATA)>
+	
+	
+	<!-- propertyZone
+		Seccción que contendrá distintas properties
+	-->
+	<!ELEMENT propertyZone (property)*>	
+	
+	<!-- property
+		Se utiliza para definir pares clave (id) valor en el XML de forma que 
+		puedan cumplimentarse parámetros no contemplados en el XML y que sean 
+		necesarios para desarrollar la APP manteniendo la libertad de modificar
+		sus valores desde este fichero de configuración
+	-->
+	<!ELEMENT property (#PCDATA)>
+	<!ATTLIST property
+		id     		ID		#REQUIRED
+	>
+		
+	
+	<!-- initMsg
+		Contenido del mensaje de aranque o ruta al fichero que lo contiene
+	-->
+	<!ELEMENT startMsg (#PCDATA)>
+	<!ATTLIST startMsg
+		id     		ID		#REQUIRED
+		path		CDATA	#IMPLIED
+		type (
+			info | lock
+		)
+		"info"	
+	>
+
+]>
+
+<gvHidraConfig>		
+<!-- 
+	Fichero de configuración del framework gvHidra.
+	Este fichero aparecerá como mínimo dentro del directorio IGEP, pero
+	también podrá aparecer en cada directorio "custom", o en el directorio
+	raíz de la aplicación.
+	A través de este sistema, podremos 	sobreescribir (personalizar) valores
+	a nivel de:
+	- Framework (igep/config.xml)
+	- Grupo de aplicaciones u organización (igep/custom/config)
+	- Aplicación (apl/) donde "apl" es el directorio de la aplicación
+	En caso de varios valores para un mismo parámetro, siempre mandará
+	por tanto el valor que se establezca en el fichero a nivel de aplicación.
+-->
+
+<applicationName>EcoRecipes Backend</applicationName>
+	<appVersion>1.0.0</appVersion> <!-- Sustituya @version@ por su versión, ej 1.0.1 -->	
+	<customTitle>Panel de administración de EcoRecipes</customTitle> 
+	<barTitle></barTitle><!-- Mini titulo de barra, ej Anualidad 2011 -->
+	<!-- templatesCompilationDir>templates_c/</templatesCompilationDir --> <!--  Fijar directorio para la cahcé de plantillas  -->
+	<!-- temporalDir>/tmp</temporalDir --> <!-- Fijar directorio temporal -->
+	<customDirName path="custom">greyStyle</customDirName>
+	<reloadMappings>true</reloadMappings> <!-- En producción false -->
+	<smartyCompileCheck>true</smartyCompileCheck> <!-- En producción false -->
+	<logSettings status='LOG_NONE' dsnRef ='gvh_dsn_log'/>
+	<queryMode status='2' />
+
+	<DSNZone>
+		<dbDSN id='g_dsn' sgbd='mysql'> <!-- Ejemplo conexión Oracle -->
+			<dbHost>localhost</dbHost>
+			<dbPort>3306</dbPort>
+			<dbDatabase>shop</dbDatabase>
+			<dbUser>root</dbUser>
+			<dbPassword>root</dbPassword>
+		</dbDSN>
+
+		<dbDSN id='gvh_dsn_log' sgbd='mysql'> <!-- Fije aquí los datos del debug -->
+			<dbHost>localhost</dbHost>
+			<dbPort>3306</dbPort>
+			<dbDatabase>shop</dbDatabase>
+			<dbUser>root</dbUser>
+			<dbPassword>root</dbPassword>
+		</dbDSN>
+		
+		<wsDSN id="pai_autentica">
+			<uriWSDL>https://preinterint.gva.es/eSirca_Bus/ins/Proxy/SAFE/AutenticacionArangi_v1_00?wsdl</uriWSDL>
+			<wsCertificatePath serial='123456789'>cert/CERTAPLICA.crt</wsCertificatePath>
+			<wsKeyPath>cert/KEYAPLICA.key</wsKeyPath>			
+			<wsPAITraceIdApp enablePAITrace="true">aplicacion1</wsPAITraceIdApp>
+		</wsDSN>
+		
+		<wsDSN id='g_ws'>
+			<uriWSDL>xxxx</uriWSDL>
+			<wsUser>xxx</wsUser>
+			<wsPassword>xxxxx</wsPassword>
+		</wsDSN>
+		
+	</DSNZone>	
+	
+	<smtpServer>
+		<smtpHost>mismtp.xxx.es</smtpHost>
+		<smtpPort>25</smtpPort>
+		<smtpUser>ususario_smtp</smtpUser>
+		<smtpPassword>password</smtpPassword>
+	</smtpServer>
+	
+	<propertyZone>
+		<property id="p_entorno">DESARROLLO</property>
+		<property id="p_mipropiedad">Valor elegido por mi</property>
+	</propertyZone>
+	
+	<startMsg id='M01' type='info'>
+		Mensaje Informativo
+	</startMsg>
+	
+</gvHidraConfig>

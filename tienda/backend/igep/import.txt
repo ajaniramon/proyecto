@@ -1,0 +1,7 @@
+# Este fichero no es usado por 'desplegar'
+# Sólo existe para indicar la versión de igep y los subproyectos que requiere
+igep igep-4_2_3
+# Subproyectos que usa esta versión
+# Deben indicarse en la aplicación que use igep
+#jasper      jasper-5_6_0		copia	/include/
+#wscomun      wscomun-1_2_0		copia	/include/

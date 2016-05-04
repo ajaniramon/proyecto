@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="./js/jquery.js"> </script>
+  <script src="./js/jquery-ui.min.js"> </script>
+
+  <title>EcoRecipes</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+  <link href="css/shop-homepage.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <script src="./js/clases.js"></script>
+  <script src="./js/tienda.js"></script>
+  <script src="./js/scroll.js"></script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-top " role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="index.html">
+          <img src="img/logo.png" alt="EcoRecipes">
+        </a>
+      </div>
+      <div id="capaCarrito">
+        <button id="verLoginBT" type="button" class="btn btn-default btn-lg button-wrapper">
+          <a>
+            <i class="fa fa-user fa-2x"> <p class="ocultar"> a </p></i>
+          </a>
+        </button>
+        <button id="verCarritoBT" type="button" class="btn btn-default btn-lg button-wrapper">
+          <a>
+            <i class="fa fa-shopping-cart fa-1x"><p class="ocultar"> a </p> </i><!--glyphicon glyphicon-shopping-cart-->
+          </a>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="contenedor" class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <span type="button" class="toggle text-center" data-toggle="collapse" data-target="#categorias" id="toggle-categories">
+          Categorías
+        </span>
+
+        <div id="categorias" class="list-group collapse navbar-collapse">
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="landingpage">
+          <section id="project0" class="slide">
+            <div>
+              <img src="img/carrusel1.jpg" alt="">
+            </div>
+          </section>
+          <section id="project1" class="slide">
+            <div>
+              <img src="img/carrusel2.jpg" alt="">
+            </div>
+          </section>
+          <section id="project2" class="slide">
+            <div>
+              <img src="img/carrusel3.jpg" alt="">
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div id="productos" class="col-md-9">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modalArticulo" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">¿Añadir al carrito?</h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Atras</button>
+          <button type="button" class="anyadir btn btn-success" data-dismiss="modal">Añadir articulo</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div id="modalCarrito" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title"><strong>Mi Carrito</strong></h3>
+        </div>
+        <div class="modal-body" id="cuerpoCarrito">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Seguir comprando</button>
+          <button type="button" class="comprar btn btn-success" data-dismiss="modal">Comprar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /.MODAL -->
+  <!-- /.container -->
+
+
+  <!-- Modal login -->
+  <div id="modalLogin" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title"><strong>Mi cuenta</strong></h3>
+        </div>
+        <div class="cuerpo-modal login-modal" id="cuerpoLogin">
+          <p>Dirección de correo electrónico: <input type="text" id="emailTF" class="form-control" required/></p>
+          <p>Contraseña: <input type="password" id="passTF" class="form-control" required/></p>
+        </div>
+        <div class="modal-footer login-modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-info" id="registroBT">Registro</button>
+          <button type="button" id="loginBT" class="login btn btn-success">Login</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="container">
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-6">
+          <p><strong>2015 &copy; EcoRecipes.</strong> Todos los derechos reservados</p>
+        </div>
+        <div class="col-lg-6">
+          <a href="#" class="social"><strong>¿Sobre nosotros?</strong></a>
+          <p><strong>Siguenos en:</strong></p>
+          <a href="#" class="social fa fa-twitter-square fa-4x">
+            <p class="ocultar">a</p>
+          </a>
+          <a href="#" class="social fa fa-youtube-play fa-4x">
+            <p class="ocultar">a</p>
+          </a>
+          <a href="#" class="social fa fa-pinterest-square fa-4x">
+            <p class="ocultar">a</p>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /.container -->
+
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

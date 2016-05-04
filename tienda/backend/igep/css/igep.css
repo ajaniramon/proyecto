@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+
+.btnRowEdit {
+	padding: 4px;
+	font-size: 11px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+.flecha-down {
+    width:0px;
+    height:0px;
+    border-left:10px solid transparent; /* izquierda flecha */
+    border-right:10px solid transparent; /* derecha flecha */
+    border-top:10px solid #55585d; /* base flecha y color*/
+    font-size:0px;
+    top: 2px;
+    padding-left: -2px;
+    line-height:0px;
+}
+
+/* Inhabilitar botón flecha */
+.disabledSelect {
+	pointer-events: none;
+}

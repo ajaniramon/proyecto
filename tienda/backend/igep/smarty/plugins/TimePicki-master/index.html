@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timepicki - free Time picker jquery plugin</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/timepicki.css"/>
+        <style>
+            body{ font-family: 'arial'}
+            a{ text-decoration: none; color: #66666B;}
+            a span{ font-size: 12px;}
+            input{ margin: 0px 30px; float: left}
+        </style>
+    </head>
+    <body>
+        <h1>Timepicki - probando... </h1> 
+        <input type="text" name="time"/>
+        <input type="text" name="time2"/>
+        <input type="text" id="time3"/>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js">
+        </script>
+        <script src="js/timepicki.js">
+        </script>
+        <script>
+            $("input[id=time3]").timepicki();
+        </script> 
+    </body>
+</html>

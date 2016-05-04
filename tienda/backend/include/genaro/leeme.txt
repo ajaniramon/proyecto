@@ -1,0 +1,11 @@
+GENARO: Generador de codigo de gvHIDRA
+--------------------------------------
+ 
+Pasos para su instalación:
+
+	1) Habilite una plantilla de proyecto gvHidra (www.gvhidra.org), seccion de descargas descargas.
+	2) En el directorio include, copie la carpeta descargada (genaro).
+	3) De permisos de lectura-escritura en el directorio compile al usuario del servidor web.
+	4) En el fichero include/menuHerramientas.xml añada la siguiente opcion (con el parametro rutaAplicacion adecuado)
+		<opcion titulo="Genaro" descripcion="Generador de codigo gvHIDRA" url="include/genaro" abrirVentana='true' imagen="menu/30.gif"/>
+	5) Entre en la aplicación y pulse sobre Genaro.

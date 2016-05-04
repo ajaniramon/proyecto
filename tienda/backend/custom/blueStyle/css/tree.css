@@ -1,0 +1,198 @@
+@charset "ISO-8859-1";
+
+/* ESTILO PARA EL ARBOL DE FICHEROS */
+.tree {
+	background-color: #D9EDF7;
+	width: auto;
+	vertical-align: top;
+}
+
+.treeBorder {
+	vertical-align: top;
+	border-right-style: solid;
+	border-right-width: 4px;
+	border-right-color: #F5F5F5;
+	background-color: #EDEDED;
+}
+
+.treeIgep {
+	font-size: small;
+	color: #000000;
+	text-decoration: none;
+}
+
+.treeIgep a {
+	text-decoration: none;
+	color: #000000;
+}	
+
+.treeIgep a:link {
+	text-decoration: none;
+	color: #000000;
+}
+
+.treeIgep a:visited {
+	color: #000000;
+	text-decoration : none;
+}
+ 
+.treeIgep a:hover {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.treeIgepSelected {
+	font-size: small;
+	color: #2C658F;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.treeIgepSelected a {
+	text-decoration: none;
+	color: #2C658F;
+}
+
+.treeIgepSelected a:link {
+	text-decoration: none;
+	color: #2C658F;
+}
+
+.treeIgepSelected a:visited {
+	color: #2C658F;
+	text-decoration : none;
+}
+
+.treeIgepSelected a:hover {
+	color: #2C658F;
+	text-decoration: none;
+}
+
+.nodoIgep1 {
+	font-size: small;
+	font-style: italic;
+	color: #000000;
+	text-decoration: none;
+}
+
+.nodoIgep1 a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.nodoIgep1 a:link {
+	text-decoration: none;
+	color: #000000;
+}
+ 
+.nodoIgep1 a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+ 
+.nodoIgep1 a:hover {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.nodoIgep1Selected {
+	font-size: small;
+	font-style: italic;
+	color: #2C658F;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.nodoIgep1Selected a {
+	text-decoration: none;
+	color: #2C658F;
+}
+
+.nodoIgep1Selected a:link {
+	text-decoration: none;
+	color: #2C658F;
+}
+
+.nodoIgep1Selected a:visited {
+	color: #2C658F;
+	text-decoration: none;
+}
+
+.nodoIgep1Selected a:hover {
+	color: #2C658F;
+	text-decoration: none;
+}
+
+.nodoIgep2 {
+	font-size: x-small;
+	color: #787878;
+	text-decoration: none;
+}
+
+.nodoIgep2 a:link {
+	text-decoration: none;
+	color: #787878;
+}
+
+.nodoIgep2 a:visited {
+	color: #787878;
+	text-decoration: none;
+}
+
+.nodoIgep2 a:hover {
+	color: #000;
+	/*font-weight: bold;*/
+	text-decoration: none;
+}
+
+.nodoIgep2Selected {
+	font-size: x-small;
+	color: #2C658F;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.nodoIgep2Selected a:link {
+	text-decoration: none;
+	color: #2C658F;
+}
+
+.nodoIgep2Selected a:visited {
+	color: #2C658F;
+	text-decoration: none;
+}
+
+.nodoIgep2Selected a:hover {
+	color: #2C658F;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+#divArbolCab {
+	/*background-color:#337AB7;*/
+}
+
+.BarPanelTree , .BarPanelTreeZip  {
+	color: #fff;
+	padding: 5px;
+  	text-align: right;
+	background-color:#5093ac;
+	border-radius: 8px 8px 8px 8px;
+}
+
+.BarPanelTree .glyphicon {
+    padding-left: 5px;
+    top: 6px;
+}
+
+.BarPanelTree .glyphicon-transfer {
+	 color: #fff !important;
+   	 font-size: 22px;
+}
+
+.BarPanelTreeZip .glyphicon-transfer {
+	 color: #fff !important;
+   	 font-size: 22px;
+}

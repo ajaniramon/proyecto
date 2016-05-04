@@ -1,0 +1,233 @@
+/* 
+ * Author: senthil
+ * plugin: timepicker
+ */
+(function ( $ ) 
+	{
+		$.fn.timepicki = function(options) 
+		{
+			var defaults = {
+			};
+        
+			var settings = $.extend( {}, defaults, options );
+
+            var ele = $(this);
+          /*  var ele_hei = ele.outerHeight();
+            var ele_lef = ele.position().left;
+            var ele_width = ele.outerWidth();
+            ele_hei +=10;
+            var pos = $(this).offset.left;
+            $(ele).wrap("<div class='time_pick'>");
+            var ele_par = $(this).parents(".time_pick"); // click en el input text, subo al padre que es la capa time_pick
+           //alert('left '+ele_lef+'px');
+            $("div.time_pick").width(ele_width);
+            // Se añaden todas las capas del time picker
+            ele_par.append("<div class='timepicker_wrap'>" +
+            		"<div class='arrow_top'></div>" +
+            		"<div class='time'>" +
+            		"	<div class='prev'>-</div>" +
+            		"	<div class='ti_tx'></div>" +
+            		"	<div class='next'>+</div>" +
+            		"</div>" +
+            		"<div class='mins'>" +
+            		"	<div class='prev'>-</div>" +
+            		"	<div class='mi_tx'></div>" +
+            		"	<div class='next'>+</div>" +
+            		"</div>" +
+            		"<div class='meridian'>" +
+            		"	<div class='prev'>-</div>" +
+            		"	<div class='mer_tx'></div>" +
+            		"	<div class='next'>+</div>" +
+            		"</div>" +
+            		"</div>");*/
+          //  var ele_next = $(this).next(".timepicker_wrap"); // nos situamos en la capa timepicker_wrap
+            var ele_next_all_child = ele_next.find("div");
+			return this.each( function() {            
+				
+				
+	            //ele_next.css({ "top": ele_hei+"px", "left": ele_lef+"px"});
+	            $(document).on( "click",function(event) 
+	            {
+	            	if(!$(event.target).is(ele_next))
+                    {
+                        if(!$(event.target).is(ele))
+                            {
+                                var tim = $("#timepicker_wrap").find(".ti_tx").html();
+                                var mini = $("#timepicker_wrap").find(".mi_tx").text();
+                                var meri = $("#timepicker_wrap").find(".mer_tx").text();
+                                if(tim.length !=0 && mini.length !=0 && meri.length !=0 )
+                                {
+                                    ele.val(tim+":"+mini+" "+meri);
+                    	            $("#time24H").html(meri);
+                                }
+                                if(!$(event.target).is(ele_next)&&!$(event.target).is(ele_next_all_child))
+                                {
+                                   ele_next.fadeOut(); 
+                                }
+                            }
+                            else{
+                                set_date();
+                                ele_next.fadeIn();  
+                            }
+                    }
+	            });
+	            function set_date()
+	            {
+	                var d = new Date();
+	                var ti = d.getHours();
+	                var mi = d.getMinutes();
+	                var mer = "AM";
+	                if (12 < ti) 
+	                {
+	                    ti -= 12;
+	                    mer = "PM";
+	                }
+	                //console.log(ele_next);
+	                if(ti<10)
+	                {
+	                	$("#timepicker_wrap").find(".ti_tx").text("0"+ti);
+	                }
+	                else{
+	                	$("#timepicker_wrap").find(".ti_tx").text(ti);
+	                }
+	                if(mi<10)
+	                {
+	                	$("#timepicker_wrap").find(".mi_tx").text("0"+mi);
+	                }
+	                else{
+	                	$("#timepicker_wrap").find(".mi_tx").text(mi);
+	                }
+	                if(mer<10)
+	                {
+	                	$("#timepicker_wrap").find(".mer_tx").text("0"+mer);
+	                }
+	                else{
+	                	$("#timepicker_wrap").find(".mer_tx").text(mer);
+	                }
+	            }
+	            var cur_next = $("#timepicker_wrap").find(".next");
+	            var cur_prev = $("#timepicker_wrap").find(".prev");
+	            $(cur_prev).add(cur_next).on("click", function () 
+	            {
+	                //console.log("click");
+	                var cur_ele = $(this);
+	                var cur_cli = null;
+	                var ele_st = 0;
+	                var ele_en = 0;
+	                if (cur_ele.parent().attr("class") == "time") 
+	                {
+	                    //alert("time");
+	                    cur_cli = "time";
+	                    ele_en = 12;
+	                    var cur_time = null;
+	                    cur_time = $("#timepicker_wrap").find("." + cur_cli + " .ti_tx").text();
+	                    cur_time = parseInt(cur_time);
+	                    //console.log(ele_next.find("." + cur_cli + " .ti_tx"));
+	                    if (cur_ele.attr("class") == "next") 
+	                    {
+	                        //alert("nex");
+	                        if (cur_time == 12) 
+	                        {
+	                        	$("#timepicker_wrap").find("." + cur_cli + " .ti_tx").text("01");
+	                        } 
+	                        else 
+	                        {
+	                            cur_time++;
+	                            if(cur_time<10)
+	                            {
+	                            	$("#timepicker_wrap").find("." + cur_cli + " .ti_tx").text("0"+cur_time);
+	                            }
+	                            else
+	                            {
+	                            	$("#timepicker_wrap").find("." + cur_cli + " .ti_tx").text(cur_time);
+	                            }
+	                        }
+	                    } 
+	                    else {
+	                        if (cur_time == 1) 
+	                        {
+	                        	$("#timepicker_wrap").find("." + cur_cli + " .ti_tx").text(12);
+	                        } 
+	                        else {
+	                            cur_time--;
+	                            if(cur_time<10)
+	                            {
+	                            	$("#timepicker_wrap").find("." + cur_cli + " .ti_tx").text("0"+cur_time);
+	                            }
+	                            else
+	                            {
+	                            	$("#timepicker_wrap").find("." + cur_cli + " .ti_tx").text(cur_time);
+	                            }
+	                        }
+	                    }
+	                }
+	                else if (cur_ele.parent().attr("class") == "mins") 
+	                {
+	                    //alert("mins");
+	                    cur_cli = "mins";
+	                    ele_en = 59;
+	                    var cur_mins = null;
+	                    cur_mins = $("#timepicker_wrap").find("." + cur_cli + " .mi_tx").text();
+	                    cur_mins = parseInt(cur_mins);
+	                    if (cur_ele.attr("class") == "next")
+	                    {
+	                        //alert("nex");
+	                        if (cur_mins == 59) 
+	                        {
+	                        	$("#timepicker_wrap").find("." + cur_cli + " .mi_tx").text("00");
+	                        } 
+	                        else 
+	                        {
+	                            cur_mins++;
+	                            if(cur_mins<10)
+	                            {
+	                            	$("#timepicker_wrap").find("." + cur_cli + " .mi_tx").text("0"+cur_mins);
+	                            }
+	                            else{
+	                            	$("#timepicker_wrap").find("." + cur_cli + " .mi_tx").text(cur_mins);
+	                            }
+	                        }
+	                    } 
+	                    else {
+	                        if (cur_mins == 0) {
+	                        	$("#timepicker_wrap").find("." + cur_cli + " .mi_tx").text(59);
+	                        }
+	                       else {
+	                           cur_mins--;
+	                           if(cur_mins<10)
+	                           {
+	                        	   $("#timepicker_wrap").find("." + cur_cli + " .mi_tx").text("0"+cur_mins);
+	                           }
+	                           else{
+	                        	   $("#timepicker_wrap").find("." + cur_cli + " .mi_tx").text(cur_mins);
+	                           }
+	                       }
+	                   }
+	                } 
+	                else {
+	                    //alert("merdian");
+	                    ele_en = 1;
+	                    cur_cli = "meridian";
+	                    var cur_mer = null;
+	                    cur_mer = $("#timepicker_wrap").find("."+cur_cli+" .mer_tx").text();
+	                    if (cur_ele.attr("class") == "next") {
+	                        //alert(cur_mer);
+	                        if(cur_mer=="AM"){
+	                        	$("#timepicker_wrap").find("."+cur_cli+" .mer_tx").text("PM");
+	                        }
+	                        else{
+	                        	$("#timepicker_wrap").find("."+cur_cli+" .mer_tx").text("AM");
+	                        }
+	                    } else {
+	                        if(cur_mer=="AM"){
+	                        	$("#timepicker_wrap").find("."+cur_cli+" .mer_tx").text("PM");
+	                        }
+	                        else{
+	                        	$("#timepicker_wrap").find("."+cur_cli+" .mer_tx").text("AM");
+	                        }
+	                    }
+	                }
+	            });
+	        });
+    };
+}( jQuery ));

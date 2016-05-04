@@ -1,0 +1,4 @@
+<FilesMatch \.(xml|txt)$>
+        Order allow,deny
+        Deny from all
+</FilesMatch>

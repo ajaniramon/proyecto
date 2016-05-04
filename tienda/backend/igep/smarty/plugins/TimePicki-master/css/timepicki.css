@@ -1,0 +1,65 @@
+/* 
+    Created on : 17 Sep, 2014, 4:29:37 PM
+    Author     : senthil
+*/
+
+.time_pick{ 
+	position:relative;
+	float:left;
+	left: 5px;
+}
+
+.timepicker_wrap{
+    padding: 4px;
+	border-radius: 5px;
+    z-index: 2; display:none; 
+    width:60px; 
+    float:left; 
+    position:absolute; 
+    top:32px; left:10px;
+	background: Window;
+	color: WindowText;
+	border: 1px solid;
+	border-color: #fff #000 #000 #fff;
+	font-family: tahoma,verdana,sans-serif;
+	font-size: 11px;
+	cursor: default;
+}
+
+.arrow_top {
+	position: absolute;
+	width:0; 
+	height:0; 
+	top: -11px;
+	left: 1px;
+	border-left:5px solid transparent; 
+	border-right:5px solid transparent; 
+	border-bottom:10px solid #7b7b7b;
+}
+
+ .time, .mins, .meridian {
+    width: 24px;
+    float: left;
+	margin: 0px 3px;
+	color: #4b707e;
+ }
+ 
+ .ti_tx, .mi_tx, .mer_tx {
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+ }
+ .prev, .next {
+    cursor: pointer;
+    width: 40%;
+    border: 1px solid #ccc;
+    margin: auto;
+    border-radius: 5px;
+	border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+	border-color: #fff #868686 #868686 #fff;
+	background: ButtonFace;
+}
+ .prev:hover, .next:hover{ background-color:#ccc;}
+ 
+.next{ background-position: 50% 150%;}
+.prev{ background-position: 50% -50%;}

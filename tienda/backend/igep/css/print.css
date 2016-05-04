@@ -1,0 +1,79 @@
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  color: #000;
+
+ }
+
+div.boton {
+	display: none;
+}
+
+table.center
+{  
+  margin-left:auto; margin-right:auto;
+}
+
+titulo
+{
+  	font-size: 10pt;  
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #F0E0A0;
+	border-color: #F0E0A0;
+	border-style: solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+tr.linea
+{
+	border-bottom-style:solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+td.col_titulo
+{
+  	font-size: 10pt;  
+	padding_top: 0pt;
+	padding_bottom: 0pt;
+	padding_left: 5pt;
+	padding_right: 5pt;
+	text-align: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	border-bottom-style:solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+td.col
+{
+  	font-size: 8pt;  
+	text-align: center;
+	border-bottom-style:solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+
+td.pie
+{
+	font-size: 8pt;
+	text-align: right;
+	border-bottom-style:solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
