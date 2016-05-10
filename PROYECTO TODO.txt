@@ -4,7 +4,7 @@
 [x] MANUAL DE USUARIO
 [x] Requisitos iniciales
 [x] Actores del sistema
-[] Diagrama de casos de uso + descripción.
+[FALTA DESCRIPCIÓN] Diagrama de casos de uso + descripción.
 [x] Diagrama de actividades de cada caso de uso.
 [x] Estructura de paquetes
 [] Diagrama de clases
