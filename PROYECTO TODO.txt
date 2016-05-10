@@ -7,7 +7,7 @@
 [FALTA DESCRIPCIÓN] Diagrama de casos de uso + descripción.
 [x] Diagrama de actividades de cada caso de uso.
 [x] Estructura de paquetes
-[] Diagrama de clases
+[x] Diagrama de clases
 [] Diagrama de secuencia de cada caso de uso
 [x] Diagrama e/r
 [x] Tecnologías y herramientas 
