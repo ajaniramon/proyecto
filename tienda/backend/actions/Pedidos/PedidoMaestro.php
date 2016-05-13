@@ -1,5 +1,5 @@
 <?php
-/* gvHIDRA. Herramienta Integral de Desarrollo Rápido de Aplicaciones de la Generalitat Valenciana
+/* gvHIDRA. Herramienta Integral de Desarrollo Rï¿½pido de Aplicaciones de la Generalitat Valenciana
 *
 * Copyright (C) 2006 Generalitat Valenciana.
 *
@@ -21,7 +21,7 @@
 *
 *  Generalitat Valenciana
 *  Conselleria d'Infraestructures i Transport
-*  Av. Blasco Ibáñez, 50
+*  Av. Blasco Ibï¿½ï¿½ez, 50
 *  46010 VALENCIA
 *  SPAIN
 *  +34 96386 24 83
@@ -33,7 +33,7 @@
 /**
 * Clase Manejadora PedidoMaestro
 * 
-* Creada con Genaro: generador de código de gvHIDRA
+* Creada con Genaro: generador de cï¿½digo de gvHIDRA
 * 
 * @autor genaro
 * @version 2.0
@@ -55,7 +55,10 @@ class PedidoMaestro extends gvHidraForm_DB
 		/************************ QUERYs ************************/
 		
 		//Consulta del modo de trabajo LIS
-		$str_select = "SELECT idpedido as \"lis_idpedido\", fecha as \"lis_fecha\", total as \"lis_total\", dni as \"lis_dni\" FROM pedido";
+		$str_select = <<<query
+SELECT pedido.idpedido as "lis_idpedido", pedido.fecha as "lis_fecha", total as "lis_total", pedido.dni as "lis_dni", concat(cliente.nombre,concat(" ",cliente.apellido)) as "lis_nombre" FROM pedido  INNER JOIN cliente  ON pedido.dni = cliente.dni
+query;
+;
 		$this->setSelectForSearchQuery($str_select);
 
 		//Where del modo de trabajo LIS
@@ -101,7 +104,9 @@ class PedidoMaestro extends gvHidraForm_DB
 		$this->addFieldType('fil_dni',$string);
 		$string = new gvHidraString(false, 9);
 		$this->addFieldType('lis_dni',$string);
-		
+
+		$nombre = new gvHidraString(false,9);
+		$this->addFieldType('lis_nombre',$nombre);
 
 		//Integers: gvHidraInteger type
 		$int = new gvHidraInteger(false, 4);
@@ -124,7 +129,7 @@ class PedidoMaestro extends gvHidraForm_DB
 		/************************ COMPONENTS ************************/
 		
 		//Declaracion de Listas y WindowSelection
-		//La definición debe estar en el AppMainWindow.php
+		//La definiciï¿½n debe estar en el AppMainWindow.php
 
 		/************************ END COMPONENTS ************************/
 
@@ -176,7 +181,7 @@ class PedidoMaestro extends gvHidraForm_DB
 	* 
 	* Incorpore aqui la logica para parametrizar los datos a insertar. Por ejemplo:
 	* - Calcular el valor de una secuencia.
-	* - Cancelar la acción de insercion.
+	* - Cancelar la acciï¿½n de insercion.
 	*/		
 	public function preInsertar($objDatos) {
 		
@@ -205,7 +210,7 @@ class PedidoMaestro extends gvHidraForm_DB
 	* 
 	* Incorpore aqui la logica para parametrizar la operacion de actualizacion. Por ejemplo:
 	* - Calcular valores derivados.
-	* - Cancelar la acción de actualizacion.
+	* - Cancelar la acciï¿½n de actualizacion.
 	*/
 	public function preModificar($objDatos) {
 		
@@ -233,7 +238,7 @@ class PedidoMaestro extends gvHidraForm_DB
 	* @param object $objDatos
 	* 
 	* Incorpore aqui la logica para parametrizar la operacion de borrado. Por ejemplo:
-	* - Cancelar la acción de borrado.
+	* - Cancelar la acciï¿½n de borrado.
 	*/	
 	public function preBorrar($objDatos) {
 		
@@ -297,7 +302,7 @@ class PedidoMaestro extends gvHidraForm_DB
 	*/	
 	public function accionesParticulares($str_accion, $objDatos) {
         
-		throw new Exception('Se ha intentado ejecutar la acción '.$str_accion.' y no está programada.');        
+		throw new Exception('Se ha intentado ejecutar la acciï¿½n '.$str_accion.' y no estï¿½ programada.');        
     }
 	
 }//End PedidoMaestro

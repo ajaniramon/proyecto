@@ -74,10 +74,10 @@ class AuthBasic extends gvhBaseAuth
     	$descAplicacion = $conf->getCustomTitle();
     	if (empty($descAplicacion))
     	{
-    		$descAplicacion = 'Aplicación gvHIDRA (AuthBasic)';
+    		$descAplicacion = 'Aplicacion gvHIDRA (AuthBasic)';
     	}
     	
-    	$sess['usuario']['nombre']="¡Bienvenido, ".$sess['usuario']['usuario']. "!";
+    	$sess['usuario']['nombre']="Bienvenido, ".$sess['usuario']['usuario']. "!";
 		$sess['rolusuar'] = 'perfil_por_definir';
 		$sess['modulos'] = array();
 		$sess['daplicacion'] = $descAplicacion;
@@ -120,7 +120,7 @@ function loginFunction($username = null, $status = null, &$auth = null)
 {
 		$status_desc = '';
 	    if (!empty($status) && $status == AUTH_EXPIRED) {
-            $status_desc = '<i>Tu sesión ha expirado. Por favor conectate de nuevo!</i>'."\n";
+            $status_desc = '<i>Tu sesiï¿½n ha expirado. Por favor conectate de nuevo!</i>'."\n";
         } else if (!empty($status) && $status == AUTH_IDLED) {
             $status_desc = '<i>Has estado inactivo mucho tiempo. Por favor conectate de nuevo!</i>'."\n";
         } else if (!empty ($status) && $status == AUTH_WRONG_LOGIN) {
@@ -137,12 +137,12 @@ function loginFunction($username = null, $status = null, &$auth = null)
         $msgAviso = '';
         if (!empty($msgStart))
         {
-        	// Aplicación con mensaje de aviso
+        	// Aplicaciï¿½n con mensaje de aviso
         	$msgAviso = "<div id='msgStart'>".htmlentities($msgStart, ENT_QUOTES | ENT_IGNORE, "ISO8859-1")."</div>";
         }
         if (($msgStartType=='lock') && (!empty($msgStart))) 
         {
-        	// Aplicación bloqueada
+        	// Aplicaciï¿½n bloqueada
         	echo <<<EOF
 				<html>
 				<head>
@@ -160,7 +160,7 @@ function loginFunction($username = null, $status = null, &$auth = null)
 				<div id='aplLogin' class="row text-center title-login">		
 							<h2 id='title'>$aplName</h2>
 							<h4 id='descrTitle'>$aplDesc</h4>
-							<h4 id='version'>Versión $aplVersion</h4>
+							<h4 id='version'>Versiï¿½n $aplVersion</h4>
 						</div>
 					
 						<h5 class='row text-center message-login'>	
@@ -212,7 +212,7 @@ EOF;
 				<div id='aplLogin' class="row text-center title-login">		
 							<h2 id='title'>$aplName</h2>
 							<h4 id='descrTitle'>$aplDesc</h4>
-							<h4 id='version'>Versión $aplVersion</h4>
+							<h4 id='version'>Versiï¿½n $aplVersion</h4>
 						</div>
 					
 						<h5 class='row text-center message-login'>	
@@ -235,8 +235,8 @@ EOF;
 							 </div>
 								<br/><br/>
 							   <div class="form-group text-left form-elements">
-									<label for="exampleInputEmail2">Contraseña&nbsp;&nbsp;</label>
-									<input type="password" name="password" class="form-control"  placeholder="Introduce la contraseña" >
+									<label for="exampleInputEmail2">Contraseï¿½a&nbsp;&nbsp;</label>
+									<input type="password" name="password" class="form-control"  placeholder="Introduce la contraseï¿½a" >
 							   </div> 	 
 								
 								<br/><br/>

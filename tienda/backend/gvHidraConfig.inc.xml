@@ -232,16 +232,16 @@
 	por tanto el valor que se establezca en el fichero a nivel de aplicación.
 -->
 
-<applicationName>EcoRecipes Backend</applicationName>
-	<appVersion>1.0.0</appVersion> <!-- Sustituya @version@ por su versión, ej 1.0.1 -->	
-	<customTitle>Panel de administración de EcoRecipes</customTitle> 
+<applicationName>EcoRecipes</applicationName>
+	<appVersion>1.0.0 (Demo CIPFP Mislata)</appVersion> <!-- Sustituya @version@ por su versión, ej 1.0.1 -->
+	<customTitle>Panel de administración</customTitle>
 	<barTitle></barTitle><!-- Mini titulo de barra, ej Anualidad 2011 -->
 	<!-- templatesCompilationDir>templates_c/</templatesCompilationDir --> <!--  Fijar directorio para la cahcé de plantillas  -->
 	<!-- temporalDir>/tmp</temporalDir --> <!-- Fijar directorio temporal -->
 	<customDirName path="custom">greyStyle</customDirName>
 	<reloadMappings>true</reloadMappings> <!-- En producción false -->
 	<smartyCompileCheck>true</smartyCompileCheck> <!-- En producción false -->
-	<logSettings status='LOG_NONE' dsnRef ='gvh_dsn_log'/>
+	<logSettings status='LOG_ALL' dsnRef ='gvh_dsn_log'/>
 	<queryMode status='2' />
 
 	<DSNZone>

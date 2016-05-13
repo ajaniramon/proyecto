@@ -15,16 +15,13 @@
 			{CWFicha}
 				<table class="text" cellspacing="4" cellpadding="4" border="0">
 					<tr>
-					 	<td>{CWCampoTexto textoAsociado="Idpedido" nombre="fil_idpedido" size="4" editable="true" visible="true" value=$defaultData_PedidoMaestro.idpedido  dataType=$dataType_PedidoMaestro.idpedido}</td>
-					</tr>
-					<tr>
 					 	<td>{CWCampoTexto textoAsociado="Fecha" nombre="fil_fecha" size="0" editable="true" visible="true" value=$defaultData_PedidoMaestro.fil_fecha  dataType=$dataType_PedidoMaestro.fil_fecha}</td>
 					</tr>
 					<tr>
-					 	<td>{CWCampoTexto textoAsociado="Total" nombre="fil_total" size="7" editable="true" visible="true" value=$defaultData_PedidoMaestro.fil_total  dataType=$dataType_PedidoMaestro.fil_total}</td>
+					 	<td>{CWCampoTexto textoAsociado="Importe total" nombre="fil_total" size="7" editable="true" visible="true" value=$defaultData_PedidoMaestro.fil_total  dataType=$dataType_PedidoMaestro.fil_total}</td>
 					</tr>
 					<tr>
-					 	<td>{CWCampoTexto textoAsociado="Dni" nombre="fil_dni" size="9" editable="true" visible="true" value=$defaultData_PedidoMaestro.fil_dni  dataType=$dataType_PedidoMaestro.fil_dni}</td>
+					 	<td>{CWCampoTexto textoAsociado="DNI" nombre="fil_dni" size="9" editable="true" visible="true" value=$defaultData_PedidoMaestro.fil_dni  dataType=$dataType_PedidoMaestro.fil_dni}</td>
 					</tr>
 				</table>
 				<br/>
@@ -47,6 +44,8 @@
 					{CWCampoTexto textoAsociado="Fecha" nombre="lis_fecha" size="0" editable="true" visible="true" value=$defaultData_PedidoMaestro.lis_fecha  dataType=$dataType_PedidoMaestro.lis_fecha}
 					{CWCampoTexto textoAsociado="Total" nombre="lis_total" size="7" editable="true" visible="true" value=$defaultData_PedidoMaestro.lis_total  dataType=$dataType_PedidoMaestro.lis_total}
 					{CWCampoTexto textoAsociado="Dni" nombre="lis_dni" size="9" editable="true" visible="true" value=$defaultData_PedidoMaestro.lis_dni  dataType=$dataType_PedidoMaestro.lis_dni}
+					{CWCampoTexto textoAsociado="Nombre" nombre="lis_nombre" size="20" editable="true" visible="true" value=$defaultData_PedidoMaestro.lis_nombre  dataType=$dataType_PedidoMaestro.lis_nombre}
+
 				{/CWFila}				
 				{CWPaginador enlacesVisibles="3" iconCSS="true"}
 			{/CWTabla}
@@ -57,7 +56,7 @@
 		{/CWBarraInfPanel}						
 	{/CWPanel}
 	
-	<!-- ****************** PESTAÑAS MAESTRO ************************-->	
+	<!-- ****************** PESTAï¿½AS MAESTRO ************************-->	
 	{CWContenedorPestanyas id="Maestro"}				
 		{CWPestanya tipo="fil" panelAsociado="fil" estado=$estado_fil ocultar="Detalle"}
 		{CWPestanya tipo="lis" panelAsociado="lis" estado=$estado_lis mostrar="Detalle"}
@@ -88,7 +87,7 @@
 		{/CWBarraInfPanel}						
 	{/CWPanel}	
 		
-	<!-- ****************** PESTAÑAS DETALLE ************************-->	
+	<!-- ****************** PESTAï¿½AS DETALLE ************************-->	
 	{CWContenedorPestanyas id="Detalle"}
 		{CWPestanya tipo="lis" panelAsociado="lisDetalle" estado="on"}
 	{/CWContenedorPestanyas}

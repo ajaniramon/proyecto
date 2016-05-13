@@ -14,7 +14,7 @@
          */
 		function ComponentesMap () {
                 
-            //Llamamos al constructor del padre. Cargamos la accines genéricas de Igep           	
+            //Llamamos al constructor del padre. Cargamos la accines genï¿½ricas de Igep           	
 			parent::gvHidraMaps();				
 
 			$this->_AddMapping('abrirAplicacion', 'AppMainWindow');
@@ -119,7 +119,7 @@
 			$this->_AddForward('Articulo__nuevo', 'gvHidraSuccess', 'index.php?view=views/Articulos/p_Articulo.php&panel=editar');
 			
 			$this->_AddMapping('Articulo__insertar', 'Articulo');
-			$this->_AddForward('Articulo__insertar', 'gvHidraSuccess', 'index.php?view=views/Articulos/p_Articulo.php&panel=editar');
+			$this->_AddForward('Articulo__insertar', 'gvHidraSuccess', 'index.php?view=views/Articulos/p_Articulo.php&panel=listar');
 			$this->_AddForward('Articulo__insertar', 'gvHidraError', 'index.php?view=views/Articulos/p_Articulo.php');
 			
 			$this->_AddMapping('Articulo__modificar', 'Articulo');
@@ -154,7 +154,7 @@
 			$this->_AddForward('Categoria__nuevo', 'gvHidraSuccess', 'index.php?view=views/Categorias/p_Categoria.php&panel=editar');
 			
 			$this->_AddMapping('Categoria__insertar', 'Categoria');
-			$this->_AddForward('Categoria__insertar', 'gvHidraSuccess', 'index.php?view=views/Categorias/p_Categoria.php&panel=editar');
+			$this->_AddForward('Categoria__insertar', 'gvHidraSuccess', 'index.php?view=views/Categorias/p_Categoria.php&panel=listar');
 			$this->_AddForward('Categoria__insertar', 'gvHidraError', 'index.php?view=views/Categorias/p_Categoria.php');
 			
 			$this->_AddMapping('Categoria__modificar', 'Categoria');

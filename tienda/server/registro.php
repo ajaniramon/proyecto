@@ -52,7 +52,7 @@ $correo->MsgHTML("Tu enlace para activar tu cuenta es <a href='http://localhost/
 if(!$correo->Send()) {
   echo "Hubo un error: " . $correo->ErrorInfo;
 } else {
-  echo "Mensaje enviado con exito.";
+  echo "Se ha enviado un mensaje a tu correo electrónico para activar tu cuenta!";
 }
 //echo "¡OK! Comprueba tu correo electrónico para activar tu cuenta. ";
 

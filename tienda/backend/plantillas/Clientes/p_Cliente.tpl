@@ -15,22 +15,19 @@
 				<table class="text" cellspacing="4" cellpadding="4" border="0">
 					
 					<tr>
-						<td>{CWCampoTexto textoAsociado="Nombre" nombre="fil_nombre" size="40" editable="true" visible="true" value=$defaultData_Cliente.fil_nombre dataType=$dataType_Cliente.fil_nombre}</td>
+						<td>{CWCampoTexto textoAsociado="Nombre" nombre="fil_nombre" size="15" editable="true" visible="true" value=$defaultData_Cliente.fil_nombre dataType=$dataType_Cliente.fil_nombre}</td>
 					</tr>
 					<tr>
-						<td>{CWCampoTexto textoAsociado="Apellido" nombre="fil_apellido" size="40" editable="true" visible="true" value=$defaultData_Cliente.fil_apellido dataType=$dataType_Cliente.fil_apellido}</td>
+						<td>{CWCampoTexto textoAsociado="Apellido" nombre="fil_apellido" size="25" editable="true" visible="true" value=$defaultData_Cliente.fil_apellido dataType=$dataType_Cliente.fil_apellido}</td>
 					</tr>
 					<tr>
-						<td>{CWCampoTexto textoAsociado="Dni" nombre="fil_dni" size="9" editable="true" visible="true" value=$defaultData_Cliente.fil_dni dataType=$dataType_Cliente.fil_dni}</td>
+						<td>{CWCampoTexto textoAsociado="DNI" nombre="fil_dni" size="9" editable="true" visible="true" value=$defaultData_Cliente.fil_dni dataType=$dataType_Cliente.fil_dni}</td>
 					</tr>
 					<tr>
-						<td>{CWCampoTexto textoAsociado="Direccion" nombre="fil_direccion" size="40" editable="true" visible="true" value=$defaultData_Cliente.fil_direccion dataType=$dataType_Cliente.fil_direccion}</td>
+						<td>{CWCampoTexto textoAsociado="Telefono" nombre="fil_telefono" size="15" editable="true" visible="true" value=$defaultData_Cliente.fil_telefono dataType=$dataType_Cliente.fil_telefono}</td>
 					</tr>
 					<tr>
-						<td>{CWCampoTexto textoAsociado="Telefono" nombre="fil_telefono" size="4" editable="true" visible="true" value=$defaultData_Cliente.fil_telefono dataType=$dataType_Cliente.fil_telefono}</td>
-					</tr>
-					<tr>
-						<td>{CWCampoTexto textoAsociado="Correo" nombre="fil_correo" size="40" editable="true" visible="true" value=$defaultData_Cliente.fil_correo dataType=$dataType_Cliente.fil_correo}</td>
+						<td>{CWCampoTexto textoAsociado="Correo" nombre="fil_correo" size="30" editable="true" visible="true" value=$defaultData_Cliente.fil_correo dataType=$dataType_Cliente.fil_correo}</td>
 					</tr>
 				</table>
 				<br/>

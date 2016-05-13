@@ -297,13 +297,14 @@ function actualizarModalLogin(){
        success: function(data){
           sesion = JSON.parse(data);
           $('.login-modal').html("<div class='alert alert-info'> Has iniciado sesión como "+"<strong>"+sesion.email+"</strong>" + "</div>");
-          $('.login-modal-footer').html("<button type='button' data-dismiss='modal' class='btn btn-info' id='perfilBT'>Mi Perfil</button> <button type='button' class='btn btn-info' data-dismiss='modal'>Vale</button> <button class='btn btn-success' id='logoutBT'> Logout </button>");
+          $('.login-modal-footer').html("<button type='button' data-dismiss='modal' class='btn btn-info' id='perfilBT'>Mi Perfil</button> <button class='btn btn-success' id='logoutBT'> Logout </button>");
 
 
           $('#perfilBT').on('click',pantallaPerfil);
           $('#logoutBT').on('click',logout);
           if (sesion.empleado == "true") {
               $('.login-modal-footer').append("<a class='btn btn-warning' href='backend.php'>Panel de Administración</a>");
+              $('.login-modal-footer').append("<a class='btn btn-warning' href='/tienda/backend'>Panel gvHIDRA</a>");
 
           };
        },

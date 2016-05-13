@@ -13,26 +13,20 @@
 		{CWContenedor}
 			{CWFicha}
 				<table class="text" cellspacing="4" cellpadding="4" border="0">
-					<tr>
-						<td>{CWCampoTexto textoAsociado="Idarticulo" nombre="fil_idarticulo" size="4" editable="true" visible="true" value=$defaultData_Articulo.fil_idarticulo dataType=$dataType_Articulo.fil_idarticulo}</td>
-					</tr>
+
 					<tr>
 						<td>{CWCampoTexto textoAsociado="Nombre" nombre="fil_nombre" size="40" editable="true" visible="true" value=$defaultData_Articulo.fil_nombre dataType=$dataType_Articulo.fil_nombre}</td>
 					</tr>
-					<tr>
-						<td>{CWCampoTexto textoAsociado="Descripcion" nombre="fil_descripcion" size="0" editable="true" visible="true" value=$defaultData_Articulo.fil_descripcion dataType=$dataType_Articulo.fil_descripcion}</td>
-					</tr>
+
 					<tr>
 						<td>{CWCampoTexto textoAsociado="Precio" nombre="fil_precio" size="7" editable="true" visible="true" value=$defaultData_Articulo.fil_precio dataType=$dataType_Articulo.fil_precio}</td>
-					</tr>
-					<tr>
-						<td>{CWCampoTexto textoAsociado="Imagen" nombre="fil_imagen" size="40" editable="true" visible="true" value=$defaultData_Articulo.fil_imagen dataType=$dataType_Articulo.fil_imagen}</td>
 					</tr>
 					<tr>
 						<td>{CWCampoTexto textoAsociado="Stock" nombre="fil_stock" size="4" editable="true" visible="true" value=$defaultData_Articulo.fil_stock dataType=$dataType_Articulo.fil_stock}</td>
 					</tr>
 					<tr>
-						<td>{CWCampoTexto textoAsociado="Categoria" nombre="fil_categoria" size="4" editable="true" visible="true" value=$defaultData_Articulo.fil_categoria dataType=$dataType_Articulo.fil_categoria}</td>
+						<td>{CWLista nombre="fil_categoria" textoAsociado="Categoria" editable="true" dataType=$dataType_Articulo.fil_categoria value=$defaultData_Articulo.fil_categoria}
+						</td>
 					</tr>
 				</table>
 				<br/>
@@ -54,10 +48,10 @@
 			{CWTabla conCheck="true" conCheckTodos="true" id="Tabla1" numFilasPantalla="10" datos=$smty_datosTabla}
 				{CWFila tipoListado="false"}
 					{CWCampoTexto textoAsociado="Idarticulo" nombre="lis_idarticulo" size="4" editable="true" visible="true" value=$defaultData_Articulo.lis_idarticulo dataType=$dataType_Articulo.lis_idarticulo}
-					{CWCampoTexto textoAsociado="Nombre" nombre="lis_nombre" size="40" editable="true" visible="true" value=$defaultData_Articulo.lis_nombre dataType=$dataType_Articulo.lis_nombre}
-					{CWCampoTexto textoAsociado="Descripcion" nombre="lis_descripcion" size="0" editable="true" visible="true" value=$defaultData_Articulo.lis_descripcion dataType=$dataType_Articulo.lis_descripcion}
+					{CWCampoTexto textoAsociado="Nombre" nombre="lis_nombre" size="20" editable="true" visible="true" value=$defaultData_Articulo.lis_nombre dataType=$dataType_Articulo.lis_nombre}
+					{CWAreaTexto textoAsociado="Descripcion" nombre="lis_descripcion"  editable="true" visible="true" value=$defaultData_Articulo.lis_descripcion dataType=$dataType_Articulo.lis_descripcion}
 					{CWCampoTexto textoAsociado="Precio" nombre="lis_precio" size="7" editable="true" visible="true" value=$defaultData_Articulo.lis_precio dataType=$dataType_Articulo.lis_precio}
-					{CWCampoTexto textoAsociado="Imagen" nombre="lis_imagen" size="40" editable="true" visible="true" value=$defaultData_Articulo.lis_imagen dataType=$dataType_Articulo.lis_imagen}
+					{CWCampoTexto textoAsociado="Ruta de la imagen" nombre="lis_imagen" size="40" editable="true" visible="true" value=$defaultData_Articulo.lis_imagen dataType=$dataType_Articulo.lis_imagen}
 					{CWCampoTexto textoAsociado="Stock" nombre="lis_stock" size="4" editable="true" visible="true" value=$defaultData_Articulo.lis_stock dataType=$dataType_Articulo.lis_stock}
 					{CWCampoTexto textoAsociado="Categoria" nombre="lis_categoria" size="4" editable="true" visible="true" value=$defaultData_Articulo.lis_categoria dataType=$dataType_Articulo.lis_categoria}
 				{/CWFila}				
@@ -82,7 +76,7 @@
 
 					<table class="text" cellspacing="4" cellpadding="4" border="0">
 						<tr>
-							<td>{CWCampoTexto textoAsociado="Idarticulo" nombre="edi_idarticulo" size="4" editable="true" visible="true" value=$defaultData_Articulo.edi_idarticulo dataType=$dataType_Articulo.edi_idarticulo}</td>
+							<td>{CWCampoTexto textoAsociado="Idarticulo" nombre="edi_idarticulo" oculto="true"  value=$defaultData_Articulo.edi_idarticulo dataType=$dataType_Articulo.edi_idarticulo}</td>
 						</tr>
 						<tr>
 							<td>{CWCampoTexto textoAsociado="Nombre" nombre="edi_nombre" size="40" editable="true" visible="true" value=$defaultData_Articulo.edi_nombre dataType=$dataType_Articulo.edi_nombre}</td>
@@ -94,13 +88,13 @@
 							<td>{CWCampoTexto textoAsociado="Precio" nombre="edi_precio" size="7" editable="true" visible="true" value=$defaultData_Articulo.edi_precio dataType=$dataType_Articulo.edi_precio}</td>
 						</tr>
 						<tr>
-							<td>{CWCampoTexto textoAsociado="Imagen" nombre="edi_imagen" size="40" editable="true" visible="true" value=$defaultData_Articulo.edi_imagen dataType=$dataType_Articulo.edi_imagen}</td>
+							<td>{CWCampoTexto textoAsociado="Ruta de la imagen" nombre="edi_imagen" size="40" editable="true" visible="true" value=$defaultData_Articulo.edi_imagen dataType=$dataType_Articulo.edi_imagen}</td>
 						</tr>
 						<tr>
 							<td>{CWCampoTexto textoAsociado="Stock" nombre="edi_stock" size="4" editable="true" visible="true" value=$defaultData_Articulo.edi_stock dataType=$dataType_Articulo.edi_stock}</td>
 						</tr>
 						<tr>
-							<td>{CWCampoTexto textoAsociado="Categoria" nombre="edi_categoria" size="4" editable="true" visible="true" value=$defaultData_Articulo.edi_categoria dataType=$dataType_Articulo.edi_categoria}</td>
+							<td>{CWLista nombre="edi_categoria" textoAsociado="Categoria" editable="true" dataType=$dataType_Articulo.edi_categoria value=$defaultData_Articulo.edi_categoria}</td>
 						</tr>
 					</table>
 					<br/>

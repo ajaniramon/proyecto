@@ -1,5 +1,5 @@
 <?php
-/* gvHIDRA. Herramienta Integral de Desarrollo Rápido de Aplicaciones de la Generalitat Valenciana
+/* gvHIDRA. Herramienta Integral de Desarrollo Rï¿½pido de Aplicaciones de la Generalitat Valenciana
 *
 * Copyright (C) 2006 Generalitat Valenciana.
 *
@@ -21,7 +21,7 @@
 *
 *  Generalitat Valenciana
 *  Conselleria d'Infraestructures i Transport
-*  Av. Blasco Ibáñez, 50
+*  Av. Blasco Ibï¿½ï¿½ez, 50
 *  46010 VALENCIA
 *  SPAIN
 *  +34 96386 24 83
@@ -33,7 +33,7 @@
 /**
 * Clase Manejadora Categoria
 * 
-* Creada con Genaro: generador de código de gvHIDRA
+* Creada con Genaro: generador de cï¿½digo de gvHIDRA
 * 
 * @autor genaro
 * @version 2.0
@@ -125,14 +125,15 @@ class Categoria extends gvHidraForm_DB
 		/************************ COMPONENTS ************************/
 		
 		//Declaracion de Listas y WindowSelection
-		//La definición debe estar en el AppMainWindow.php
+		//La definiciï¿½n debe estar en el AppMainWindow.php
 
 
 		/************************ END COMPONENTS ************************/						
-
+		$this->addDefaultData("edi_idcategoria","null");
 		
 		//Mantener los valores del modo de trabajo FIL tras la busqueda
 		$this->keepFilterValuesAfterSearch(true);
+		$this->showOnlyNewRecordsAfterInsert(false);
 
 	}//End construct
 
@@ -326,7 +327,7 @@ class Categoria extends gvHidraForm_DB
 	*/	
 	public function accionesParticulares($str_accion, $objDatos) {
         
-		throw new Exception('Se ha intentado ejecutar la acción '.$str_accion.' y no está programada.');        
+		throw new Exception('Se ha intentado ejecutar la acciï¿½n '.$str_accion.' y no estï¿½ programada.');        
     }
 	
 }//End  Categoria

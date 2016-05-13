@@ -1,15 +1,17 @@
 <?php
 /**
- * Mensajes particulares a la aplicación
+ * Mensajes particulares a la aplicaciï¿½n
  * Variables globales:
  * - vector $g_mensajesParticulares
  * $Revision: 1.2 $
  */
 
-//Variable de mensajes particulares de la aplicación.
+//Variable de mensajes particulares de la aplicaciï¿½n.
 global $g_mensajesParticulares;
 $g_mensajesParticulares = array(
-	'APL-1'=>array('descCorta'=>'ATENCIÓN: APLICACIÓN EN PRUEBAS.','descLarga'=>'Acabas de entrar en una aplicación en pruebas. Está basada en la versión inestable de gvHIDRA, por lo que puede contener errores. <br/><br/>El equipo gvHIDRA','tipo'=>'ALERTA'),
+	'APL-1'=>array('descCorta'=>'ATENCIï¿½N: APLICACIï¿½N EN PRUEBAS.','descLarga'=>'Acabas de entrar en una aplicaciï¿½n en pruebas. Estï¿½ basada en la versiï¿½n inestable de gvHIDRA, por lo que puede contener errores. <br/><br/>El equipo gvHIDRA','tipo'=>'ALERTA'),
+	'APL-2'=>array('descCorta'=>'CategorÃ­a no seleccionada.','descLarga'=>'Es necesario seleccionar una categoria.','tipo'=>'ALERTA'),
+	
 );
 
 ?>

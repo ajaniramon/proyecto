@@ -1,5 +1,5 @@
 <?php
-/* gvHIDRA. Herramienta Integral de Desarrollo Rápido de Aplicaciones de la Generalitat Valenciana
+/* gvHIDRA. Herramienta Integral de Desarrollo Rï¿½pido de Aplicaciones de la Generalitat Valenciana
 *
 * Copyright (C) 2006 Generalitat Valenciana.
 *
@@ -21,7 +21,7 @@
 *
 *  Generalitat Valenciana
 *  Conselleria d'Infraestructures i Transport
-*  Av. Blasco Ibáñez, 50
+*  Av. Blasco Ibï¿½ï¿½ez, 50
 *  46010 VALENCIA
 *  SPAIN
 *  +34 96386 24 83
@@ -33,7 +33,7 @@
 /**
 * Clase Manejadora Articulo
 * 
-* Creada con Genaro: generador de código de gvHIDRA
+* Creada con Genaro: generador de cï¿½digo de gvHIDRA
 * 
 * @autor genaro
 * @version 2.0
@@ -75,7 +75,7 @@ class Articulo extends gvHidraForm_DB
 
 		//Order del modo de trabajo EDI
 		$this->setOrderByForEditQuery('1');
-
+		//$this->addDefaultData("edi_idarticulo","null");
 		/************************ END QUERYs ************************/
 
 
@@ -133,26 +133,25 @@ class Articulo extends gvHidraForm_DB
 		$int = new gvHidraInteger(false, 4);
 		$this->addFieldType('fil_idarticulo',$int);
 		$this->addFieldType('lis_idarticulo',$int);		
-		$int = new gvHidraInteger(true, 4);
+		$int = new gvHidraInteger(false, 4);
 		$this->addFieldType('edi_idarticulo',$int);
 		
 		$int = new gvHidraInteger(false, 4);
+		$stockEdi = new gvHidraInteger(true,4);
 		$this->addFieldType('fil_stock',$int);
 		$this->addFieldType('lis_stock',$int);		
-		$this->addFieldType('edi_stock',$int);
+		$this->addFieldType('edi_stock',$stockEdi);
 		
-		$int = new gvHidraInteger(false, 4);
-		$this->addFieldType('fil_categoria',$int);
-		$this->addFieldType('lis_categoria',$int);		
-		$this->addFieldType('edi_categoria',$int);
+		
 		
 
 		//Floats: gvHidraFloat type
 		$float = new gvHidraFloat(false, 7);
+		$precioEdi = new gvHidraFloat(true,7);
 		$float->setFloatLength(2);
 		$this->addFieldType('fil_precio',$float);
 		$this->addFieldType('lis_precio',$float);		
-		$this->addFieldType('edi_precio',$float);
+		$this->addFieldType('edi_precio',$precioEdi);
 		
 
 		/************************ END TYPEs ************************/
@@ -160,14 +159,24 @@ class Articulo extends gvHidraForm_DB
 		/************************ COMPONENTS ************************/
 		
 		//Declaracion de Listas y WindowSelection
-		//La definición debe estar en el AppMainWindow.php
+		$categorias = new gvHidraList("fil_categoria","CATEGORIAS");
+		$categorias->addOption("","");
+		$this->addList($categorias);
+
+		$categoriasEdi = new gvHidraList("edi_categoria","CATEGORIAS");
+		$categoriasEdi->addOption("","");
+		$this->addList($categoriasEdi);
+
+
+		//La definiciï¿½n debe estar en el AppMainWindow.php
 
 
 		/************************ END COMPONENTS ************************/						
 
 		
 		//Mantener los valores del modo de trabajo FIL tras la busqueda
-		$this->keepFilterValuesAfterSearch(true);
+		$this->keepFilterValuesAfterSearch(false);
+		$this->showOnlyNewRecordsAfterInsert(false);
 
 	}//End construct
 
@@ -184,7 +193,7 @@ class Articulo extends gvHidraForm_DB
 	* - Cancelar la accion de buscar. 
 	*/	
 	public function preBuscar($objDatos) {
-		
+
 		return 0;
 	}
 
@@ -214,7 +223,7 @@ class Articulo extends gvHidraForm_DB
 	* - Cancelar la accion. 
 	*/	
 	public function preEditar($objDatos) {
-		
+
 		return 0;
 	}
 
@@ -228,7 +237,7 @@ class Articulo extends gvHidraForm_DB
 	* - Completar la informacion obtenida.
 	*/	
 	public function postEditar($objDatos) {
-		
+
 		return 0;
 	}
 
@@ -243,7 +252,17 @@ class Articulo extends gvHidraForm_DB
 	* - Cancelar la acci?n de insercion.
 	*/		
 	public function preInsertar($objDatos) {
-		
+		$categoria = $objDatos->getValue("edi_categoria");
+
+		if(empty($categoria) || $categoria == "" || is_null($categoria)){
+			$this->showMessage("APL-2");
+			return -1;
+		}
+		/*$precio = $objDatos->getValue("edi_precio");
+		if(empty($precio) || $precio == "" || is_null($precio)){
+			$this->showMessage("APL-3");
+			return -1;
+		}*/
 		return 0;
 	}
 	
@@ -272,7 +291,13 @@ class Articulo extends gvHidraForm_DB
 	* - Cancelar la acci?n de actualizacion.
 	*/
 	public function preModificar($objDatos) {
-		
+		$categoria = $objDatos->getValue("edi_categoria");
+
+		if(empty($categoria) || $categoria == "" || is_null($categoria)){
+			$this->showMessage("APL-2");
+			return -1;
+		}
+
 		return 0;
 	}
 	
@@ -361,7 +386,7 @@ class Articulo extends gvHidraForm_DB
 	*/	
 	public function accionesParticulares($str_accion, $objDatos) {
         
-		throw new Exception('Se ha intentado ejecutar la acción '.$str_accion.' y no está programada.');        
+		throw new Exception('Se ha intentado ejecutar la acciï¿½n '.$str_accion.' y no estï¿½ programada.');        
     }
 	
 }//End  Articulo

@@ -111,16 +111,12 @@ Fin de la DTD
 		<opcion imagen="menu/menu.gif" titulo="Google" descripcion="Buscador" url="http://www.google.es" abrirVentana='true'/>
 	</modulo>
 	-->
-  <modulo titulo="Pedidos" imagen="menu/43.gif" descripcion="Pedidos">
-    <opcion titulo="PedidoMaestro" descripcion="Mantenimiento de PedidoMaestro" url="phrame.php?action=PedidoMaestro__iniciarVentana"/>
-  </modulo>
-  <modulo titulo="Clientes" imagen="menu/43.gif" descripcion="Clientes">
-    <opcion titulo="Cliente" descripcion="Mantenimiento de Cliente" url="phrame.php?action=Cliente__iniciarVentana"/>
-  </modulo>
-  <modulo titulo="Articulos" imagen="menu/43.gif" descripcion="Articulos">
-    <opcion titulo="Articulo" descripcion="Mantenimiento de Articulo" url="phrame.php?action=Articulo__iniciarVentana"/>
-  </modulo>
-  <modulo titulo="Categorias" imagen="menu/43.gif" descripcion="Categorias">
-    <opcion titulo="Categoria" descripcion="Mantenimiento de Categoria" url="phrame.php?action=Categoria__iniciarVentana"/>
+
+
+  <modulo titulo="Gestión EcoRecipes" imagen="menu/43.gif" descripcion="Gestion">
+    <opcion titulo="Gestión de pedidos" descripcion="Mantenimiento de PedidoMaestro" url="phrame.php?action=PedidoMaestro__iniciarVentana"/>
+    <opcion titulo="Gestión de clientes" descripcion="Mantenimiento de Cliente" url="phrame.php?action=Cliente__iniciarVentana"/>
+    <opcion titulo="Gestión de artículos" descripcion="Mantenimiento de Articulo" url="phrame.php?action=Articulo__iniciarVentana"/>
+    <opcion titulo="Gestión de categorías" descripcion="Mantenimiento de Categoria" url="phrame.php?action=Categoria__iniciarVentana"/>
   </modulo>
 </menu>

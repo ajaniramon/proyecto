@@ -30,7 +30,7 @@ $result_idPedido = mysql_query($SQL_idPedido) or die('Consulta fallida 3: ' . my
 $idPedido = mysql_fetch_array($result_idPedido); // Array de un dato (primera fila tiene la idPedido --> $row[0]
 
 $ccc = $obj_carrito->ccc;
-require("transaction.php");
+//require("transaction.php");
 
 $SQL_linea_pedido = "INSERT INTO linea_pedido(idpedido, idarticulo, unidad, precio, precioTotal) VALUES ";
 $articulos = $obj_carrito->articulos;
