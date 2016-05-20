@@ -1,7 +1,7 @@
 ﻿PROYECTO TODO
 ----------------
 [x] PROPUESTAS DE MEJORA
-[x] MANUAL DE USUARIO
+[FALTA BACKEND] MANUAL DE USUARIO
 [x] Requisitos iniciales
 [x] Actores del sistema
 [FALTA DESCRIPCIÓN] Diagrama de casos de uso + descripción.
